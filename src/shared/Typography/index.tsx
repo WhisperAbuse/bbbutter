@@ -1,24 +1,31 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import styled from 'styled-components';
+import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import styled from "styled-components";
 
-type FontSize = 'sm' | 'base' | 'md' | 'lg' | 'xl';
+type FontSize = "sm" | "base" | "md" | "lg" | "xl";
+type AsComponent = "p" | "span" | "div";
 
 interface IProps {
   fontSize?: FontSize;
+  asComponent?: AsComponent;
+  className?: string;
 }
 
-export default function Typography({
+function TypographyBase({
   children,
-  fontSize = 'base',
-}: PropsWithChildren<IProps>): ReactNode {
-  return <StyledTypography fontSize={fontSize}>{children}</StyledTypography>;
+  asComponent = "p",
+  className,
+}: PropsWithChildren<IProps>): ReactElement {
+  const Component = asComponent;
+  return <Component className={className}>{children}</Component>;
 }
 
-const StyledTypography = styled.p`
-  font-family: 'Gt eesti display', sans-serif;
+const Typography = styled(TypographyBase)`
+  font-family: "Gt eesti display", sans-serif;
   color: ${(p) => p.theme.dark};
   text-align: center;
   font-size: 18px;
   line-height: 140%;
   font-weight: 300;
 `;
+
+export default Typography;

@@ -1,51 +1,33 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { PropsWithChildren, ReactElement } from "react";
+import styled from "styled-components";
+import ButtonBase, { BaseButtonProps } from "../BaseButton";
 
-type ButtonVariant = 'primary' | 'primary-dark' | 'secondary';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonVariant = "primary" | "primary-dark";
 
-interface IProps {
-  variant: ButtonVariant;
-  size: ButtonSize;
-  fullWidth: boolean;
+type IProps = BaseButtonProps & {
+  variant?: ButtonVariant;
+};
+
+export default function Button(props: PropsWithChildren<IProps>): ReactElement {
+  const { variant = "primary", children } = props;
+  let Component = PrimaryButton;
+
+  if (variant === "primary-dark") {
+    Component = PrimaryButtonDark;
+  }
+  return <Component {...props}>{children}</Component>;
 }
 
-export default function Button({
-  children,
-  variant = 'primary',
-  size = 'md',
-  fullWidth = false,
-}: PropsWithChildren<IProps>): ReactNode {
-  const Component = PrimaryButton as any;
-
-  return (
-    <Component fullWidth={fullWidth} variant={variant} size={size}>
-      {children}
-    </Component>
-  );
-}
-
-const StyledButton = styled.button`
-  font-family: 'Gt eesti display', sans-serif;
-  ${(p) => {
-    switch (p.size) {
-      default:
-        return css`
-          padding: 18px 26px;
-          border-radius: 16px;
-          font-size: 16px;
-          font-weight: 600;
-          line-height: 1.2;
-        `;
-    }
-  }}
-  ${(p) => p.fullWidth && 'width: 100%'}
+const PrimaryButtonBase = styled(ButtonBase)`
+  border: 2px solid ${(p) => p.theme.dark};
 `;
 
-const PrimaryButton = styled(StyledButton)`
-  border: 2px solid ${(p) => p.theme.dark};
-  background-color: ${(p) =>
-    p.variant === 'primary-dark' ? p.theme.dark : p.theme.light};
-  color: ${(p) =>
-    p.variant === 'primary-dark' ? p.theme.light : p.theme.dark};
+const PrimaryButton = styled(PrimaryButtonBase)`
+  background-color: ${(p) => p.theme.light};
+  color: ${(p) => p.theme.dark};
+`;
+
+const PrimaryButtonDark = styled(PrimaryButtonBase)`
+  background-color: ${(p) => p.theme.dark};
+  color: ${(p) => p.theme.light};
 `;

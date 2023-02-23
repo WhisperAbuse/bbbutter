@@ -1,16 +1,30 @@
-import { FC, PropsWithChildren, ReactNode } from 'react';
-import styled from 'styled-components';
-import * as S from './styled';
+import { FC, PropsWithChildren, ReactElement, ReactNode } from "react";
+import styled from "styled-components";
+
+type AsComponent = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 interface IProps {
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
   fontSize?: number;
+  className?: string;
+  asComponent?: AsComponent;
 }
 
-export default function Heading({
-  variant = 'primary',
-  fontSize = 48,
+function Heading({
   children,
-}: PropsWithChildren<IProps>): ReactNode {
-  return <S.Heading fontSize={fontSize}>{children}</S.Heading>;
+  className,
+  asComponent = "h2",
+}: PropsWithChildren<IProps>): ReactElement {
+  const Component = asComponent;
+
+  return <Component className={className}>{children}</Component>;
 }
+
+const StyledHeading = styled(Heading)`
+  font-family: "Gt eesti display ultra 2", sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  font-size: ${(p) => `${p.fontSize}px`};
+`;
+
+export default StyledHeading;
