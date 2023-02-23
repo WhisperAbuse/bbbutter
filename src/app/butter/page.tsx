@@ -1,12 +1,8 @@
 "use client";
-
-import Button from "@/shared/Button";
-import Heading from "@/shared/Heading";
-import Navigation from "@/shared/Navigation";
-import Typography from "@/shared/Typography";
-import Image from "next/image";
 import styled from "styled-components";
-import Hero from "./Hero";
+
+import Navigation from "@/shared/Navigation";
+import Hero from "./components/Hero";
 
 export default function Butter() {
   return (
