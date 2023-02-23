@@ -1,7 +1,8 @@
-import Button from "@/shared/Button";
-import Heading from "@/shared/Heading";
-import Typography from "@/shared/Typography";
 import styled from "styled-components";
+
+import Button from "@/uikit/Button";
+import Heading from "@/uikit/Heading";
+import Typography from "@/uikit/Typography";
 
 export default function Hero() {
   return (
