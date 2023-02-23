@@ -1,7 +1,9 @@
 "use client";
+
 import styled from "styled-components";
 
 import Navigation from "@/shared/Navigation";
+
 import Hero from "./components/Hero";
 
 export default function Butter() {

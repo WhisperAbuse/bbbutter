@@ -1,6 +1,7 @@
 'use client';
-import StyledComponentsRegistry from '@/lib/registry';
 import { ThemeProvider } from 'styled-components';
+
+import StyledComponentsRegistry from '@/lib/registry';
 import './styles/index.scss';
 
 const theme = {

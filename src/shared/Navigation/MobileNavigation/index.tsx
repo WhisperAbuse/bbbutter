@@ -1,6 +1,7 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import MobileBurger from './MobileBurger';
+import Image from "next/image";
+import styled from "styled-components";
+
+import MobileBurger from "./MobileBurger";
 
 export default function MobileNavigation() {
   return (
