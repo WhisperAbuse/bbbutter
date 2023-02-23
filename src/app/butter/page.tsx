@@ -6,13 +6,14 @@ import Navigation from "@/shared/Navigation";
 import ScrollingPartners from "@/shared/ScrollingPartners";
 
 import Hero from "./components/Hero";
+import LargeParagraph from "./components/LargeParagraph";
 
 export default function Butter() {
   return (
     <main>
-      <NavWrap>
+      <NavWrapper>
         <Navigation />
-      </NavWrap>
+      </NavWrapper>
       <Hero />
       <VideoWrapper>
         <MobileVideo controls>
@@ -24,11 +25,14 @@ export default function Butter() {
       <ScrollingPartnersWrapper>
         <ScrollingPartners />
       </ScrollingPartnersWrapper>
+      <LargeParagraphWrapper>
+        <LargeParagraph />
+      </LargeParagraphWrapper>
     </main>
   );
 }
 
-const NavWrap = styled.div`
+const NavWrapper = styled.div`
   z-index: 10;
   position: relative;
 `;
@@ -47,4 +51,8 @@ const VideoWrapper = styled.div`
 
 const ScrollingPartnersWrapper = styled.div`
   padding: 80px 0;
+`;
+
+const LargeParagraphWrapper = styled.div`
+  padding: 0 20px;
 `;

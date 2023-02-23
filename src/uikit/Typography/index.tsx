@@ -23,10 +23,6 @@ function TypographyBase({
 const Typography = styled(TypographyBase)`
   font-family: "Gt eesti display", sans-serif;
   color: ${(p) => p.theme.dark};
-  text-align: center;
-  font-size: 18px;
-  line-height: 140%;
-  font-weight: 300;
 `;
 
 export default Typography;

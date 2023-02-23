@@ -12,11 +12,11 @@ export default function Hero() {
           Run more engaging sessions. Get better outcomes.
         </Heading>
       </HeadingWrapper>
-      <Typography>
+      <Description>
         Butter’s agenda planner, delightful interactions, and integrated
         collaboration tools let you run super-engaging workshops, trainings, and
         meetings—without juggling a million tools.
-      </Typography>
+      </Description>
       <HeroButtonsWrapper>
         <Button fullWidth variant="primary-dark">
           Try Butter for free
@@ -41,6 +41,13 @@ const HeadingWrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   padding-bottom: 20px;
+`;
+
+const Description = styled(Typography)`
+  text-align: center;
+  line-height: 140%;
+  font-weight: 300;
+  font-size: 18px;
 `;
 
 const HeroButtonsWrapper = styled.div`
