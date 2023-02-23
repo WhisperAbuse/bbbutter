@@ -62,6 +62,10 @@ const ContainerInner = styled.div`
   display: flex;
   width: fit-content;
   animation: 30s infinite linear infinite-scroll-x;
+
+  &:hover {
+    animation-play-state: paused;
+  }
 `;
 
 const ScrollingWrapper = styled.div`
