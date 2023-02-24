@@ -1,14 +1,18 @@
-'use client';
-import { ThemeProvider } from 'styled-components';
+"use client";
+import { ThemeProvider } from "styled-components";
 
-import StyledComponentsRegistry from '@/lib/registry';
-import './styles/index.scss';
+import StyledComponentsRegistry from "@/lib/registry";
+import "./styles/index.scss";
 
 const theme = {
-  main: '#fffd63',
-  secondary: 'white',
-  dark: '#0a0b1e',
-  light: '#fff',
+  main: "#fffd63",
+  secondary: "white",
+  dark: "#0a0b1e",
+  light: "#fff",
+  "light-purple": "#c7d0ff",
+  "light-green": "#bff9ea",
+  peach: "#ffd8aa",
+  "light-pink": "#ffd5d5",
 };
 
 export default function RootLayout({

@@ -11,7 +11,7 @@ interface IProps {
   asComponent?: AsComponent;
 }
 
-function Heading({
+function HeadingBase({
   children,
   className,
   asComponent = "h2",
@@ -21,11 +21,11 @@ function Heading({
   return <Component className={className}>{children}</Component>;
 }
 
-const StyledHeading = styled(Heading)`
+const Heading = styled(HeadingBase)`
   font-family: "Gt eesti display ultra 2", sans-serif;
   font-weight: 800;
   line-height: 1;
   font-size: ${(p) => `${p.fontSize}px`};
 `;
 
-export default StyledHeading;
+export default Heading;

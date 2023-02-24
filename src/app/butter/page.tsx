@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Navigation from "@/shared/Navigation";
 import ScrollingPartners from "@/shared/ScrollingPartners";
 
+import Features from "./components/Features";
 import Hero from "./components/Hero";
 import LargeParagraph from "./components/LargeParagraph";
 
@@ -28,6 +29,9 @@ export default function Butter() {
       <LargeParagraphWrapper>
         <LargeParagraph />
       </LargeParagraphWrapper>
+      <FeatureWrapper>
+        <Features />
+      </FeatureWrapper>
     </main>
   );
 }
@@ -55,4 +59,8 @@ const ScrollingPartnersWrapper = styled.div`
 
 const LargeParagraphWrapper = styled.div`
   padding: 0 20px;
+`;
+
+const FeatureWrapper = styled.div`
+  margin-top: 200px;
 `;
