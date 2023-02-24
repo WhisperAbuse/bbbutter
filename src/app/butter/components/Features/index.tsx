@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import styled from "styled-components";
 
 import FeaturePlan from "./FeaturePlan";
+import FeatureRecap from "./FeatureRecap";
 import FeatureRun from "./FeatureRun";
 
 interface IProps {
@@ -14,6 +15,7 @@ function FeaturesBase({ className }: IProps): ReactElement {
     <Container className={className}>
       <FeaturePlan />
       <FeatureRun />
+      <FeatureRecap />
     </Container>
   );
 }
