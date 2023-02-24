@@ -4,10 +4,10 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import FeaturePaper from "@/shared/FeaturePaper";
-import Button from "@/uikit/Button";
-import Heading from "@/uikit/Heading";
-import Typography from "@/uikit/Typography";
 import PlanDottedImg from "public/media/features/plan_dotted_pattern.png";
+
+import FeatureContent from "../Content";
+import Title from "../Title";
 
 interface IProps {
   className?: string;
@@ -16,23 +16,16 @@ interface IProps {
 function FeaturePlan({ className }: IProps): ReactElement {
   return (
     <div>
-      <Heading asComponent="h2" fontSize={100}>
-        <span>Plan</span>
-        <span>.</span>
-      </Heading>
+      <Title title="Plan" />
       <StyledFeaturePlan>
         <StyledImage src={PlanDottedImg} alt="" />
-        <FeatureHeading>
-          Prepare sessions that practically run themselves
-        </FeatureHeading>
-        <FeatureParagraph>
-          Structured sessions lead to better outcomes. Set up the perfect flow
-          with a time-boxed agenda, pre-loaded tools, and a reusable team
-          library.
-        </FeatureParagraph>
-        <ButtonWrapper>
-          <Button variant="primary-bg-empty">Learn more</Button>
-        </ButtonWrapper>
+        <FeatureContentWrapper>
+          <FeatureContent
+            heading="Prepare sessions that practically run themselves"
+            paragraph="Structured sessions lead to better outcomes. Set up the perfect flow with a time-boxed agenda, pre-loaded tools, and a reusable team library."
+            buttonText="Learn more"
+          />
+        </FeatureContentWrapper>
       </StyledFeaturePlan>
     </div>
   );
@@ -47,19 +40,8 @@ const StyledFeaturePlan = styled(FeaturePaper)`
   background-color: ${(p) => p.theme["light-purple"]};
 `;
 
-const FeatureHeading = styled(Heading)`
-  margin-top: 50px;
-  font-size: 32px;
-`;
-
-const FeatureParagraph = styled(Typography)`
-  margin-top: 30px;
-  font-size: 18px;
-  font-weight: 300;
-`;
-
-const ButtonWrapper = styled.div`
-  margin-top: 30px;
+const FeatureContentWrapper = styled.div`
+  margin-top: 40px;
 `;
 
 export default FeaturePlan;
