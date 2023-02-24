@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 
 import styled from "styled-components";
 
+import FeatureCollaborate from "./FeatureCollaborate";
 import FeaturePlan from "./FeaturePlan";
 import FeatureRecap from "./FeatureRecap";
 import FeatureRun from "./FeatureRun";
@@ -16,6 +17,7 @@ function FeaturesBase({ className }: IProps): ReactElement {
       <FeaturePlan />
       <FeatureRun />
       <FeatureRecap />
+      <FeatureCollaborate />
     </Container>
   );
 }
