@@ -34,6 +34,7 @@ function FeaturePlan({ className }: IProps): ReactElement {
 const StyledImage = styled(Image)`
   width: 100%;
   height: fit-content;
+  max-width: 400px;
 `;
 
 const StyledFeaturePlan = styled(FeaturePaper)`

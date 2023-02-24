@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import styled from "styled-components";
 
 import FeaturePlan from "./FeaturePlan";
+import FeatureRun from "./FeatureRun";
 
 interface IProps {
   className?: string;
@@ -10,12 +11,18 @@ interface IProps {
 
 function FeaturesBase({ className }: IProps): ReactElement {
   return (
-    <div className={className}>
+    <Container className={className}>
       <FeaturePlan />
-    </div>
+      <FeatureRun />
+    </Container>
   );
 }
 
 const Features = styled(FeaturesBase)``;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+`;
 export default Features;
