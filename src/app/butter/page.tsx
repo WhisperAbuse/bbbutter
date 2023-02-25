@@ -70,5 +70,5 @@ const FeatureWrapper = styled.div`
 `;
 
 const ReviewsWrapper = styled.div`
-  margin-top: 200px;
+  margin-top: 150px;
 `;
