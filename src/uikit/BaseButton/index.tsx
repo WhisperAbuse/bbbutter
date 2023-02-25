@@ -1,8 +1,13 @@
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import {
+  ButtonHTMLAttributes,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+} from "react";
 
 import styled, { css } from "styled-components";
 
-type ButtonSize = "sm" | "md" | "lg";
+type ButtonSize = "sm" | "md" | "lg" | "custom";
 type AsComponent = "button" | "a" | "div";
 
 export interface BaseButtonProps {
@@ -10,23 +15,36 @@ export interface BaseButtonProps {
   fullWidth?: boolean;
   asComponent?: AsComponent;
   className?: string;
+  [rest: string]: any;
 }
 
 function Button({
   children,
   asComponent = "button",
   className,
+  ...rest
 }: PropsWithChildren<BaseButtonProps>): ReactElement {
   const Component = asComponent;
 
-  return <Component className={className}>{children}</Component>;
+  return (
+    <Component className={className} {...rest}>
+      {children}
+    </Component>
+  );
 }
 
-const ButtonBase = styled(Button)`
+const ButtonBase = styled(Button).attrs((p) => ({
+  size: p.size || "md",
+}))`
   font-family: "Gt eesti display", sans-serif;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
   ${(p) => {
     switch (p.size) {
-      default:
+      case "md":
         return css`
           padding: 18px 26px;
           border-radius: 16px;

@@ -7,3 +7,81 @@
     transform: translateX(-50%);
   }
 }
+
+.leaf-rotate {
+  animation: leaf-rotate-anim 1s ease-out;
+}
+
+@keyframes leaf-rotate-anim {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.back-leaf-rotate {
+  animation: back-leaf-rotate-anim 1s ease-out;
+}
+
+@keyframes back-leaf-rotate-anim {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg) scale(1.01);
+  }
+}
+
+.img-rotate {
+  animation: img-rotate-anim 1s ease-out;
+}
+
+@keyframes img-rotate-anim {
+  from {
+    transform: rotate(-180deg) scale(130%) translateX(10%) translateY(5%);
+  }
+  to {
+    transform: rotate(0deg) scale(130%) translateX(10%) translateY(5%);
+  }
+}
+
+.dots-appear {
+  animation: dots-appear-anim 1s ease-out;
+}
+
+@keyframes dots-appear-anim {
+  from {
+    transform: rotate(45deg) scale(0.7);
+  }
+  to {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+.flash-content {
+  animation: flash-content-anim 0.6s ease-out;
+}
+
+@keyframes flash-content-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.white-overlay-dissapear {
+  animation: white-overlay-anim 0.6s ease-out;
+}
+
+@keyframes white-overlay-anim {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 0;
+  }
+}

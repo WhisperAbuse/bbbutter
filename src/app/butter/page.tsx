@@ -9,6 +9,7 @@ import Features from "./components/Features";
 import Hero from "./components/Hero";
 import LargeParagraph from "./components/LargeParagraph";
 import Reviews from "./components/Reviews";
+import SpinWords from "./components/SpinWords";
 
 export default function Butter() {
   return (
@@ -36,6 +37,7 @@ export default function Butter() {
       <ReviewsWrapper>
         <Reviews />
       </ReviewsWrapper>
+      <SpinWords />
     </main>
   );
 }

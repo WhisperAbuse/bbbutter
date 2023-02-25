@@ -1,34 +1,43 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 import styled from "styled-components";
 
+import { ReviewItem } from "@/global/types";
 import Heading from "@/uikit/Heading";
 import Paper from "@/uikit/Paper";
 import Typography from "@/uikit/Typography";
-import LeapLogoSVG from "public/media/reviews/leap_logo.webp";
-import LeapRobImg from "public/media/reviews/leap_rob_hamblen.png";
 
 import MaskedPhoto from "./MaskedPhoto";
 
-const text =
-  "“When my clients have a workshop with us in Butter, there's just a different vibe to the whole interaction. It becomes something they look forward to! It marries up exactly with the playful way we want to show up as an agency. Our participants love the structure and how it gives them an equal chance to contribute.”";
-const author = "Rob Hamblen";
-const role = "Founder at LEAP, Product Design & Innovation agency";
-
 interface IProps {
   className?: string;
+  reviewData: ReviewItem;
 }
 
-function ReviewTemplateBase({ className }: IProps): ReactElement {
+function ReviewTemplateBase({ className, reviewData }: IProps): ReactElement {
+  const { id, personImg, companyLogo, text, author, role, backgroundColor } =
+    reviewData;
+
+  const [leafRotate, setLeafRotate] = useState(false);
+
+  useEffect(() => {
+    setLeafRotate(true);
+    setTimeout(() => setLeafRotate(false), 1000);
+  }, [id]);
+
   return (
     <Container>
       <div>
-        <MaskedPhoto PersonImg={LeapRobImg} />
+        <MaskedPhoto
+          PersonImg={personImg}
+          leafRotate={leafRotate}
+          backgroundColor={backgroundColor}
+        />
       </div>
-      <ReviewContent>
+      <ReviewContent className={`${leafRotate && "flash-content"}`}>
         <LogoWrapper>
-          <StyledLogo src={LeapLogoSVG} alt="" />
+          <StyledLogo src={companyLogo} alt="" />
         </LogoWrapper>
         <StyledParagraph>{text}</StyledParagraph>
         <AuthorBlock>
@@ -55,12 +64,13 @@ const ReviewContent = styled.div`
 `;
 
 const StyledLogo = styled(Image)`
-  width: 100%;
-  height: fit-content;
+  width: fit-content;
+  height: 100%;
 `;
 
 const LogoWrapper = styled.div`
-  width: 40px;
+  height: 40px;
+  width: fit-content;
   margin-top: 20px;
 `;
 
