@@ -66,13 +66,18 @@ function ReviewsBase({ className }: IProps): ReactElement {
     setCurrentReviewId(id);
   };
 
+  const changeReviewNext = () => {
+    const nextReviewId = (currentReviewId % reviews.length) + 1;
+    changeReview(nextReviewId);
+  };
+
   const reviewData = reviews.find(
     (r) => r.id === currentReviewId
   ) as ReviewItem;
 
   return (
     <div className={className}>
-      <ReviewTemplate reviewData={reviewData} />
+      <ReviewTemplate reviewData={reviewData} onClick={changeReviewNext} />
       <PaginationWrapper>
         {reviews.map((review) => (
           <ReviewButton

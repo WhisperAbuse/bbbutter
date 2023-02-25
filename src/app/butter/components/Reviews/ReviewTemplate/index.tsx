@@ -4,6 +4,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import { ReviewItem } from "@/global/types";
+import ButtonBase from "@/uikit/BaseButton";
 import Heading from "@/uikit/Heading";
 import Paper from "@/uikit/Paper";
 import Typography from "@/uikit/Typography";
@@ -13,9 +14,14 @@ import MaskedPhoto from "./MaskedPhoto";
 interface IProps {
   className?: string;
   reviewData: ReviewItem;
+  onClick: () => void;
 }
 
-function ReviewTemplateBase({ className, reviewData }: IProps): ReactElement {
+function ReviewTemplateBase({
+  className,
+  reviewData,
+  onClick,
+}: IProps): ReactElement {
   const { id, personImg, companyLogo, text, author, role, backgroundColor } =
     reviewData;
 
@@ -27,7 +33,7 @@ function ReviewTemplateBase({ className, reviewData }: IProps): ReactElement {
   }, [id]);
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <div>
         <MaskedPhoto
           PersonImg={personImg}
@@ -51,7 +57,7 @@ function ReviewTemplateBase({ className, reviewData }: IProps): ReactElement {
 
 const ReviewTemplate = styled(ReviewTemplateBase)``;
 
-const Container = styled(Paper)`
+const Container = styled(ButtonBase)`
   border-radius: 80px;
   background-color: ${(p) => p.theme.main};
   padding: 50px 32px 80px;
