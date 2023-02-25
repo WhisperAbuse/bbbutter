@@ -14,23 +14,18 @@ import MaskedPhoto from "./MaskedPhoto";
 interface IProps {
   className?: string;
   reviewData: ReviewItem;
+  leafRotate: boolean;
   onClick: () => void;
 }
 
 function ReviewTemplateBase({
   className,
   reviewData,
+  leafRotate,
   onClick,
 }: IProps): ReactElement {
   const { id, personImg, companyLogo, text, author, role, backgroundColor } =
     reviewData;
-
-  const [leafRotate, setLeafRotate] = useState(false);
-
-  useEffect(() => {
-    setLeafRotate(true);
-    setTimeout(() => setLeafRotate(false), 1000);
-  }, [id]);
 
   return (
     <Container onClick={onClick}>

@@ -12,6 +12,7 @@ interface IProps {
   leafRotate: boolean;
 }
 
+// TODO: Reset and trigger animations on fast review change
 function MaskedPhotoBase({
   className,
   PersonImg,

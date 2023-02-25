@@ -61,8 +61,11 @@ const reviews: ReviewItem[] = [
 function ReviewsBase({ className }: IProps): ReactElement {
   const [currentReviewId, setCurrentReviewId] = useState(1);
 
+  const [leafRotate, setLeafRotate] = useState(false);
+
   const changeReview = (id: number) => {
-    console.log(id);
+    setLeafRotate(true);
+    setTimeout(() => setLeafRotate(false), 1000);
     setCurrentReviewId(id);
   };
 
@@ -77,7 +80,11 @@ function ReviewsBase({ className }: IProps): ReactElement {
 
   return (
     <div className={className}>
-      <ReviewTemplate reviewData={reviewData} onClick={changeReviewNext} />
+      <ReviewTemplate
+        reviewData={reviewData}
+        leafRotate={leafRotate}
+        onClick={changeReviewNext}
+      />
       <PaginationWrapper>
         {reviews.map((review) => (
           <ReviewButton
