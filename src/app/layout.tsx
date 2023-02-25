@@ -13,6 +13,7 @@ const theme = {
   "light-green": "#bff9ea",
   peach: "#ffd8aa",
   "light-pink": "#ffd5d5",
+  "contrast-blue": "#80F4D5",
 };
 
 export default function RootLayout({

@@ -8,6 +8,7 @@ import ScrollingPartners from "@/shared/ScrollingPartners";
 import Features from "./components/Features";
 import Hero from "./components/Hero";
 import LargeParagraph from "./components/LargeParagraph";
+import Reviews from "./components/Reviews";
 
 export default function Butter() {
   return (
@@ -32,6 +33,9 @@ export default function Butter() {
       <FeatureWrapper>
         <Features />
       </FeatureWrapper>
+      <ReviewsWrapper>
+        <Reviews />
+      </ReviewsWrapper>
     </main>
   );
 }
@@ -62,5 +66,9 @@ const LargeParagraphWrapper = styled.div`
 `;
 
 const FeatureWrapper = styled.div`
+  margin-top: 200px;
+`;
+
+const ReviewsWrapper = styled.div`
   margin-top: 200px;
 `;
