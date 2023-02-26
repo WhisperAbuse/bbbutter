@@ -1,18 +1,17 @@
-import Image from "next/image";
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import MobileBurger from "./MobileBurger";
+import LogoImg from 'public/media/common/butterlogo.svg';
+
+import MobileBurger from './MobileBurger';
 
 export default function MobileNavigation() {
   return (
     <MobileNavWrapper>
       <MobileNav>
-        <Image
-          src="/media/common/butterlogo.svg"
-          alt="Butter logo"
-          width={88}
-          height={19}
-        />
+        <LogoWrapper>
+          <Image src={LogoImg} alt="Butter logo" />
+        </LogoWrapper>
         <div>
           <MobileBurger />
         </div>
@@ -24,6 +23,10 @@ export default function MobileNavigation() {
 const MobileNavWrapper = styled.div`
   padding: 15px 5px 0px 5px;
   position: fixed;
+  width: 100%;
+`;
+const LogoWrapper = styled.div`
+  max-width: 80px;
   width: 100%;
 `;
 

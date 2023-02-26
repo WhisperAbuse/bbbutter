@@ -1,12 +1,12 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import Image from "next/image";
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import HyperIslandImg from "public/media/partner_logos/HyperIsland.svg";
-import PleoImg from "public/media/partner_logos/Pleo.svg";
-import PWCImg from "public/media/partner_logos/PWC.svg";
-import WebflowImg from "public/media/partner_logos/Webflow.svg";
+import HyperIslandImg from 'public/media/partner_logos/HyperIsland.svg';
+import PleoImg from 'public/media/partner_logos/Pleo.svg';
+import PWCImg from 'public/media/partner_logos/PWC.svg';
+import WebflowImg from 'public/media/partner_logos/Webflow.svg';
 
 interface IProps {}
 
@@ -36,14 +36,14 @@ export default function ScrollingPartners({}: IProps): ReactElement {
         <ScrollingWrapper>
           {images.map((img, index) => (
             <ImageWrapper key={index}>
-              <Image src={img} alt={"Logo"} />
+              <Image src={img} alt="" />
             </ImageWrapper>
           ))}
         </ScrollingWrapper>
         <ScrollingWrapper>
           {images.map((img, index) => (
             <ImageWrapper key={index}>
-              <Image src={img} alt={"Logo"} />
+              <Image src={img} alt="" />
             </ImageWrapper>
           ))}
         </ScrollingWrapper>
@@ -73,6 +73,6 @@ const ScrollingWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  width: max-content;
   height: 112px;
-  position: relative;
 `;

@@ -1,19 +1,21 @@
-"use client";
+'use client';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Navigation from "@/shared/Navigation";
-import ScrollingPartners from "@/shared/ScrollingPartners";
+import Navigation from '@/shared/Navigation';
+import ScrollingPartners from '@/shared/ScrollingPartners';
+import PageContentWrap from '@/uikit/PageContentWrap';
 
-import Features from "./components/Features";
-import Hero from "./components/Hero";
-import LargeParagraph from "./components/LargeParagraph";
-import Reviews from "./components/Reviews";
-import SpinWords from "./components/SpinWords";
+import CommunityParagraph from './components/CommunityParagraph';
+import Features from './components/Features';
+import Hero from './components/Hero';
+import LargeParagraph from './components/LargeParagraph';
+import Reviews from './components/Reviews';
+import SpinWords from './components/SpinWords';
 
 export default function Butter() {
   return (
-    <main>
+    <Main>
       <NavWrapper>
         <Navigation />
       </NavWrapper>
@@ -37,10 +39,19 @@ export default function Butter() {
       <ReviewsWrapper>
         <Reviews />
       </ReviewsWrapper>
-      <SpinWords />
-    </main>
+      <SpinWordsWrapper>
+        <SpinWords />
+      </SpinWordsWrapper>
+      <CommunityParagraphWrapper>
+        <CommunityParagraph />
+      </CommunityParagraphWrapper>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  padding-bottom: 250px;
+`;
 
 const NavWrapper = styled.div`
   z-index: 10;
@@ -73,4 +84,12 @@ const FeatureWrapper = styled.div`
 
 const ReviewsWrapper = styled.div`
   margin-top: 150px;
+`;
+
+const SpinWordsWrapper = styled(PageContentWrap)`
+  margin-top: 70px;
+`;
+
+const CommunityParagraphWrapper = styled(PageContentWrap)`
+  margin-top: 50px;
 `;
