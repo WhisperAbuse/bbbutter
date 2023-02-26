@@ -1,3 +1,4 @@
+// START: Partners block animations
 @keyframes infinite-scroll-x {
   from {
     transform: translateX(0);
@@ -7,7 +8,9 @@
     transform: translateX(-50%);
   }
 }
+// END: Reviews block animations
 
+// START: Reviews block animations
 .leaf-rotate {
   animation: leaf-rotate-anim 1s ease-out;
 }
@@ -83,5 +86,36 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+// END: Reviews block animations
+
+// START: Reviews block animations
+.butter-word-rotate {
+  animation: butter-rotate-anim linear 20s infinite;
+}
+
+.community-word-rotate {
+  animation: community-rotate-anim linear 30s infinite;
+}
+
+@keyframes butter-rotate-anim {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes community-rotate-anim {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
   }
 }

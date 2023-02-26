@@ -63,10 +63,9 @@ const MobileVideo = styled.video`
   border-radius: 24px;
 `;
 
-const VideoWrapper = styled.div`
+const VideoWrapper = styled(PageContentWrap)`
   width: 100%;
   margin-top: -40px;
-  padding: 0 20px;
   position: relative;
 `;
 
@@ -74,9 +73,7 @@ const ScrollingPartnersWrapper = styled.div`
   padding: 80px 0;
 `;
 
-const LargeParagraphWrapper = styled.div`
-  padding: 0 20px;
-`;
+const LargeParagraphWrapper = styled(PageContentWrap)``;
 
 const FeatureWrapper = styled.div`
   margin-top: 200px;
