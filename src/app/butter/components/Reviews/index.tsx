@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 
 import styled from "styled-components";
 
@@ -63,9 +63,14 @@ function ReviewsBase({ className }: IProps): ReactElement {
 
   const [leafRotate, setLeafRotate] = useState(false);
 
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const changeReview = (id: number) => {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
     setLeafRotate(true);
-    setTimeout(() => setLeafRotate(false), 1000);
+    timer.current = setTimeout(() => setLeafRotate(false), 1000);
     setCurrentReviewId(id);
   };
 
