@@ -21,12 +21,10 @@ export default function MobileNavigation() {
 }
 
 const MobileNavWrapper = styled.div`
-  padding: 15px 5px 0px 5px;
+  padding: 15px 20px 0px;
   position: fixed;
-  width: 100%;
-`;
-const LogoWrapper = styled.div`
-  max-width: 80px;
+  top: 0;
+  left: 0;
   width: 100%;
 `;
 
@@ -40,4 +38,9 @@ const MobileNav = styled.div`
   box-shadow: 0 4px 8px 0 rgba(10, 11, 30, 0.06),
     0 8px 48px 0 rgba(10, 11, 30, 0.08);
   border-radius: 20px;
+`;
+
+const LogoWrapper = styled.div`
+  max-width: 80px;
+  width: 100%;
 `;

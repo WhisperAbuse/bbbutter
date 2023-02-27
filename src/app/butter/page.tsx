@@ -12,6 +12,7 @@ import Hero from './components/Hero';
 import LargeParagraph from './components/LargeParagraph';
 import Reviews from './components/Reviews';
 import SpinWords from './components/SpinWords';
+import WhatTheFAQ from './components/WhatTheFAQ';
 
 export default function Butter() {
   return (
@@ -45,6 +46,9 @@ export default function Butter() {
       <CommunityParagraphWrapper>
         <CommunityParagraph />
       </CommunityParagraphWrapper>
+      <WhatTheFAQWrapper>
+        <WhatTheFAQ />
+      </WhatTheFAQWrapper>
     </Main>
   );
 }
@@ -53,7 +57,7 @@ const Main = styled.main`
   padding-bottom: 250px;
 `;
 
-const NavWrapper = styled.div`
+const NavWrapper = styled(PageContentWrap)`
   z-index: 10;
   position: relative;
 `;
@@ -89,4 +93,8 @@ const SpinWordsWrapper = styled(PageContentWrap)`
 
 const CommunityParagraphWrapper = styled(PageContentWrap)`
   margin-top: 50px;
+`;
+
+const WhatTheFAQWrapper = styled(PageContentWrap)`
+  margin-top: 100px;
 `;

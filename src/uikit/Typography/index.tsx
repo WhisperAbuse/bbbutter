@@ -1,9 +1,9 @@
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import { forwardRef, PropsWithChildren } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-type FontSize = "sm" | "base" | "md" | "lg" | "xl";
-type AsComponent = "p" | "span" | "div";
+type FontSize = 'sm' | 'base' | 'md' | 'lg' | 'xl';
+type AsComponent = 'p' | 'span' | 'div';
 
 interface IProps {
   fontSize?: FontSize;
@@ -11,17 +11,18 @@ interface IProps {
   className?: string;
 }
 
-function TypographyBase({
-  children,
-  asComponent = "p",
-  className,
-}: PropsWithChildren<IProps>): ReactElement {
+const TypographyBase = forwardRef<
+  HTMLParagraphElement | HTMLDivElement | HTMLSpanElement,
+  PropsWithChildren<IProps>
+>(({ children, asComponent = 'p', className }) => {
   const Component = asComponent;
   return <Component className={className}>{children}</Component>;
-}
+});
+
+TypographyBase.displayName = 'TypographyBase';
 
 const Typography = styled(TypographyBase)`
-  font-family: "Gt eesti display", sans-serif;
+  font-family: 'Gt eesti display', sans-serif;
   color: ${(p) => p.theme.dark};
 `;
 

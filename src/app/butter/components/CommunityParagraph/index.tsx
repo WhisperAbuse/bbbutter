@@ -19,7 +19,7 @@ function CommunityParagraphBase({ className }: IProps): ReactElement {
         from our network of experts.
       </Typography>
       <ButtonWrapper>
-        <Button variant="primary-bg-empty">Join the community</Button>
+        <JoinButton variant="primary-bg-empty">Join the community</JoinButton>
       </ButtonWrapper>
     </Container>
   );
@@ -36,6 +36,10 @@ const Container = styled.div``;
 const ButtonWrapper = styled.div`
   width: fit-content;
   margin: 40px auto 0;
+`;
+
+const JoinButton = styled(Button)`
+  font-size: 18px;
 `;
 
 export default CommunityParagraph;

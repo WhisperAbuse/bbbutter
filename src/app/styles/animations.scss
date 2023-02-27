@@ -91,7 +91,7 @@
 
 // END: Reviews block animations
 
-// START: Reviews block animations
+// START: Word rotate block animations
 .butter-word-rotate {
   animation: butter-rotate-anim linear 20s infinite;
 }
@@ -119,3 +119,24 @@
     transform: rotate(0);
   }
 }
+// END: Word rotate block animationt
+
+// START: faq animations
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+// END: faq animations
