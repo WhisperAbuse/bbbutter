@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Navigation from '@/shared/Navigation';
-import ScrollingPartners from '@/shared/ScrollingPartners';
-import PageContentWrap from '@/uikit/PageContentWrap';
+import Navigation from "@/shared/Navigation";
+import ScrollingPartners from "@/shared/ScrollingPartners";
+import PageContentWrap from "@/uikit/PageContentWrap";
 
-import CommunityParagraph from './components/CommunityParagraph';
-import Features from './components/Features';
-import Hero from './components/Hero';
-import LargeParagraph from './components/LargeParagraph';
-import Reviews from './components/Reviews';
-import SpinWords from './components/SpinWords';
-import WhatTheFAQ from './components/WhatTheFAQ';
+import CommunityParagraph from "./components/CommunityParagraph";
+import Features from "./components/Features";
+import Hero from "./components/Hero";
+import LargeParagraph from "./components/LargeParagraph";
+import Reviews from "./components/Reviews";
+import SpinWords from "./components/SpinWords";
+import WhatTheFAQ from "./components/WhatTheFAQ";
 
 export default function Butter() {
   return (
@@ -96,5 +96,5 @@ const CommunityParagraphWrapper = styled(PageContentWrap)`
 `;
 
 const WhatTheFAQWrapper = styled(PageContentWrap)`
-  margin-top: 100px;
+  margin-top: 180px;
 `;

@@ -1,15 +1,18 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
-import * as Accordion from '@radix-ui/react-accordion';
-import Image from 'next/image';
-import styled from 'styled-components';
+import * as Accordion from "@radix-ui/react-accordion";
+import Image from "next/image";
+import styled from "styled-components";
 
-import { FaqData } from '@/global/types';
-import AccordionItem from '@/uikit/AccordionItem';
+import { FaqData } from "@/global/types";
+import AccordionItem from "@/uikit/AccordionItem";
+import Heading from "@/uikit/Heading";
+
+import AnimatedDot from "./AnimatedDot";
 
 const faqs: FaqData[] = [
   {
-    question: 'Why should I use Butter?',
+    question: "Why should I use Butter?",
     answer: (
       <span>
         Other video conferencing tools aren’t built for collaboration. They’re
@@ -27,7 +30,7 @@ const faqs: FaqData[] = [
     ),
   },
   {
-    question: 'What types of sessions is Butter best for?',
+    question: "What types of sessions is Butter best for?",
     answer: (
       <span>
         Butter isn’t built for those could-have-been-an-email meetings. You know
@@ -44,7 +47,7 @@ const faqs: FaqData[] = [
     ),
   },
   {
-    question: 'Is Butter free?',
+    question: "Is Butter free?",
     answer: (
       <span>
         Pretty much! Our free plan lets you run group sessions for up to 45
@@ -69,6 +72,21 @@ interface IProps {
 function WhatTheFAQBase({ className }: IProps): ReactElement {
   return (
     <Container className={className}>
+      <FaqHeadingWrapper>
+        <FaqHeadingLine>
+          <FaqHeading>What</FaqHeading>
+          <AnimatedDot />
+        </FaqHeadingLine>
+        <FaqHeadingLine>
+          <FaqHeading>The</FaqHeading>
+          <AnimatedDot />
+        </FaqHeadingLine>
+        <FaqHeadingLine>
+          <FaqHeading>FAQ?</FaqHeading>
+          <QuestionCover />
+          <QuestionAnimatedDot />
+        </FaqHeadingLine>
+      </FaqHeadingWrapper>
       <AccordionRoot type="multiple">
         {faqs.map((faq, index) => (
           <AccordionItem key={index} faqData={faq} value={`item${index}`} />
@@ -86,6 +104,36 @@ const AccordionRoot = styled(Accordion.Root)`
   display: flex;
   flex-direction: column;
   gap: 20px;
+`;
+
+const FaqHeadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+`;
+
+const FaqHeadingLine = styled.div`
+  display: flex;
+  position: relative;
+  width: fit-content;
+`;
+
+const QuestionCover = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  content: "";
+  padding: 21px;
+  background-color: white;
+`;
+const QuestionAnimatedDot = styled(AnimatedDot)`
+  left: -40px;
+  bottom: -3px;
+`;
+
+const FaqHeading = styled(Heading)`
+  font-size: 100px;
 `;
 
 export default WhatTheFAQ;
