@@ -108,7 +108,11 @@ const SpinWordsWrapper = styled(PageContentWrap)`
   margin-top: 70px;
 
   @media ${screen.laptop} {
-    padding: 0 100px;
+    padding: 0 150px;
+  }
+
+  @media ${screen.laptopL} {
+    padding: 0 250px;
   }
 `;
 
