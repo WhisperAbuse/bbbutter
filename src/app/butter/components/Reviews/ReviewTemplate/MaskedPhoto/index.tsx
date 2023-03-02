@@ -3,6 +3,7 @@ import { ReactElement, useEffect, useRef, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import LeafMaskSVG from 'public/media/reviews/leaf.svg';
 import ProcessDotsImg from 'public/media/reviews/Process Dots.png';
 interface IProps {
@@ -45,6 +46,10 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 300px;
   aspect-ratio: 1 / 1;
+
+  @media ${screen.laptop} {
+    max-width: 350px;
+  }
 `;
 
 const MaskContainer = styled.div`

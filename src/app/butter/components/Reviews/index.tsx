@@ -108,4 +108,5 @@ const PaginationWrapper = styled.div`
   gap: 10px;
   margin-top: -25px;
 `;
+
 export default Reviews;
