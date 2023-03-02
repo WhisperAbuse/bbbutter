@@ -1,12 +1,12 @@
-import { FC, forwardRef, PropsWithChildren, ReactElement } from "react";
+import { FC, forwardRef, PropsWithChildren, ReactElement } from 'react';
 
-import * as Accordion from "@radix-ui/react-accordion";
-import Image from "next/image";
-import styled from "styled-components";
+import * as Accordion from '@radix-ui/react-accordion';
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import Heading from "@/uikit/Heading";
-import Typography from "@/uikit/Typography";
-import PlusImg from "public/media/common/plus.png";
+import Heading from '@/uikit/Heading';
+import Typography from '@/uikit/Typography';
+import PlusImg from 'public/media/common/plus.png';
 
 interface IProps {
   className?: string;
@@ -26,9 +26,12 @@ const AccordionTriggerBase = forwardRef<
   );
 });
 
-AccordionTriggerBase.displayName = "AccordionTriggerBase";
+AccordionTriggerBase.displayName = 'AccordionTriggerBase';
 
-const AccordionTrigger = styled(AccordionTriggerBase)``;
+const AccordionTrigger = styled(AccordionTriggerBase)`
+  padding: 30px 15px;
+  cursor: pointer;
+`;
 
 const AccordionHeader = styled(Accordion.Header)``;
 
@@ -51,7 +54,7 @@ const Trigger = styled(Accordion.Trigger)`
   border: 0;
   background-color: transparent;
 
-  &[data-state="open"] > ${AccordionPlus} {
+  &[data-state='open'] > ${AccordionPlus} {
     transform: rotate(45deg);
   }
 `;

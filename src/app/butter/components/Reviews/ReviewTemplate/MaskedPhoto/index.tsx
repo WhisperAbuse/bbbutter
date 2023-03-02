@@ -1,48 +1,37 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from 'react';
 
-import Image, { StaticImageData } from "next/image";
-import styled from "styled-components";
+import Image, { StaticImageData } from 'next/image';
+import styled from 'styled-components';
 
-import LeafMaskSVG from "public/media/reviews/leaf.svg";
-import ProcessDotsImg from "public/media/reviews/Process Dots.png";
+import LeafMaskSVG from 'public/media/reviews/leaf.svg';
+import ProcessDotsImg from 'public/media/reviews/Process Dots.png';
 interface IProps {
   className?: string;
   PersonImg: StaticImageData;
   backgroundColor: string;
-  leafRotate: boolean;
 }
 
 // TODO: Reset and trigger animations on fast review change
 function MaskedPhotoBase({
   className,
   PersonImg,
-  leafRotate,
+
   backgroundColor,
 }: IProps): ReactElement {
   return (
     <Container>
-      <DotsImage
-        src={ProcessDotsImg}
-        alt=""
-        className={`${leafRotate && "dots-appear"}`}
-      />
+      <DotsImage src={ProcessDotsImg} alt="" className={'dots-appear'} />
 
       <StyledImageLeaf
-        className={`${leafRotate && "back-leaf-rotate"}`}
+        className={'back-leaf-rotate'}
         src={LeafMaskSVG}
         alt=""
       />
 
-      <MaskContainer className={`${leafRotate && "leaf-rotate"}`}>
+      <MaskContainer className={'leaf-rotate'}>
         <BackgroundOverlay backgroundColor={backgroundColor} />
-        <StyledImage
-          src={PersonImg}
-          alt=""
-          className={`${leafRotate && "img-rotate"}`}
-        />
-        <WhiteOverlay
-          className={`${leafRotate && "white-overlay-dissapear"}`}
-        />
+        <StyledImage src={PersonImg} alt="" className={'img-rotate'} />
+        <WhiteOverlay className={'white-overlay-dissapear'} />
       </MaskContainer>
     </Container>
   );
@@ -55,11 +44,12 @@ const Container = styled.div`
   display: flex;
   margin: 0 auto;
   max-width: 300px;
+  aspect-ratio: 1 / 1;
 `;
 
 const MaskContainer = styled.div`
   position: relative;
-  mask-image: url("media/reviews/leaf.svg");
+  mask-image: url('media/reviews/leaf.svg');
   mask-repeat: no-repeat;
 
   transform: rotate(0deg);

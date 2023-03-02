@@ -1,18 +1,19 @@
-"use client";
+'use client';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Navigation from "@/shared/Navigation";
-import ScrollingPartners from "@/shared/ScrollingPartners";
-import PageContentWrap from "@/uikit/PageContentWrap";
+import Footer from '@/shared/Footer';
+import Navigation from '@/shared/Navigation';
+import ScrollingPartners from '@/shared/ScrollingPartners';
+import PageContentWrap from '@/uikit/PageContentWrap';
 
-import CommunityParagraph from "./components/CommunityParagraph";
-import Features from "./components/Features";
-import Hero from "./components/Hero";
-import LargeParagraph from "./components/LargeParagraph";
-import Reviews from "./components/Reviews";
-import SpinWords from "./components/SpinWords";
-import WhatTheFAQ from "./components/WhatTheFAQ";
+import CommunityParagraph from './components/CommunityParagraph';
+import Features from './components/Features';
+import Hero from './components/Hero';
+import LargeParagraph from './components/LargeParagraph';
+import Reviews from './components/Reviews';
+import SpinWords from './components/SpinWords';
+import WhatTheFAQ from './components/WhatTheFAQ';
 
 export default function Butter() {
   return (
@@ -49,13 +50,14 @@ export default function Butter() {
       <WhatTheFAQWrapper>
         <WhatTheFAQ />
       </WhatTheFAQWrapper>
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Main>
   );
 }
 
-const Main = styled.main`
-  padding-bottom: 250px;
-`;
+const Main = styled.main``;
 
 const NavWrapper = styled(PageContentWrap)`
   z-index: 10;
@@ -97,4 +99,8 @@ const CommunityParagraphWrapper = styled(PageContentWrap)`
 
 const WhatTheFAQWrapper = styled(PageContentWrap)`
   margin-top: 180px;
+`;
+
+const FooterWrapper = styled.div`
+  margin-top: 150px;
 `;

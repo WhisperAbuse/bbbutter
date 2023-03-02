@@ -1,27 +1,27 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 
-import Image from "next/image";
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import { ReviewItem } from "@/global/types";
-import ButtonBase from "@/uikit/BaseButton";
-import Heading from "@/uikit/Heading";
-import Paper from "@/uikit/Paper";
-import Typography from "@/uikit/Typography";
+import { ReviewItem } from '@/global/types';
+import ButtonBase from '@/uikit/BaseButton';
+import Heading from '@/uikit/Heading';
+import Paper from '@/uikit/Paper';
+import Typography from '@/uikit/Typography';
 
-import MaskedPhoto from "./MaskedPhoto";
+import MaskedPhoto from './MaskedPhoto';
 
 interface IProps {
   className?: string;
   reviewData: ReviewItem;
-  leafRotate: boolean;
+
   onClick: () => void;
 }
 
 function ReviewTemplateBase({
   className,
   reviewData,
-  leafRotate,
+
   onClick,
 }: IProps): ReactElement {
   const { id, personImg, companyLogo, text, author, role, backgroundColor } =
@@ -32,11 +32,11 @@ function ReviewTemplateBase({
       <div>
         <MaskedPhoto
           PersonImg={personImg}
-          leafRotate={leafRotate}
           backgroundColor={backgroundColor}
+          key={id}
         />
       </div>
-      <ReviewContent className={`${leafRotate && "flash-content"}`}>
+      <ReviewContent className={'flash-content'} key={id}>
         <LogoWrapper>
           <StyledLogo src={companyLogo} alt="" />
         </LogoWrapper>
