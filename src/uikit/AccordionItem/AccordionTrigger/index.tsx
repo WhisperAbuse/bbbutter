@@ -4,6 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import Heading from '@/uikit/Heading';
 import Typography from '@/uikit/Typography';
 import PlusImg from 'public/media/common/plus.png';
@@ -31,6 +32,10 @@ AccordionTriggerBase.displayName = 'AccordionTriggerBase';
 const AccordionTrigger = styled(AccordionTriggerBase)`
   padding: 30px 15px;
   cursor: pointer;
+
+  @media ${screen.tablet} {
+    padding: 45px 40px;
+  }
 `;
 
 const AccordionHeader = styled(Accordion.Header)``;
@@ -38,6 +43,11 @@ const AccordionHeader = styled(Accordion.Header)``;
 const AccordionHeading = styled(Heading)`
   font-size: 16px;
   text-align: left;
+
+  @media ${screen.tablet} {
+    font-size: 32px;
+    font-weight: 700;
+  }
 `;
 
 const AccordionPlus = styled(Image)`

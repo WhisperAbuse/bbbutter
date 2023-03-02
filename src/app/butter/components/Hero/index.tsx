@@ -1,28 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Button from "@/uikit/Button";
-import Heading from "@/uikit/Heading";
-import Typography from "@/uikit/Typography";
+import { screen } from '@/global/breakpoints';
+import Button from '@/uikit/Button';
+import Heading from '@/uikit/Heading';
+import PageContentWrap from '@/uikit/PageContentWrap';
+import Typography from '@/uikit/Typography';
 
 export default function Hero() {
   return (
     <Container>
-      <HeadingWrapper>
-        <Heading asComponent="h1" fontSize={48}>
-          Run more engaging sessions. Get better outcomes.
-        </Heading>
-      </HeadingWrapper>
-      <Description>
-        Butter’s agenda planner, delightful interactions, and integrated
-        collaboration tools let you run super-engaging workshops, trainings, and
-        meetings—without juggling a million tools.
-      </Description>
-      <HeroButtonsWrapper>
-        <Button fullWidth variant="primary-dark">
-          Try Butter for free
-        </Button>
-        <Button fullWidth>Book a demo</Button>
-      </HeroButtonsWrapper>
+      <PageContentWrap>
+        <HeadingWrapper>
+          <Title asComponent="h1">
+            Run more engaging sessions.
+            <br />
+            Get better outcomes.
+          </Title>
+        </HeadingWrapper>
+        <Description>
+          Butter’s agenda planner, delightful interactions, and integrated
+          collaboration tools let you run super-engaging workshops, trainings,
+          and meetings—without juggling a million tools.
+        </Description>
+        <HeroButtonsWrapper>
+          <TryButterButton fullWidth variant="primary-dark">
+            Try Butter for free
+          </TryButterButton>
+          <Button fullWidth>Book a demo</Button>
+        </HeroButtonsWrapper>
+      </PageContentWrap>
     </Container>
   );
 }
@@ -31,7 +37,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: middle;
-  padding: 150px 16px 100px;
+  padding: 150px 0 100px;
   background-color: ${(p) => p.theme.main};
 `;
 
@@ -43,11 +49,23 @@ const HeadingWrapper = styled.div`
   padding-bottom: 20px;
 `;
 
+const Title = styled(Heading)`
+  font-size: 48px;
+
+  @media ${screen.tablet} {
+    font-size: 62px;
+  }
+`;
+
 const Description = styled(Typography)`
   text-align: center;
   line-height: 140%;
   font-weight: 300;
   font-size: 18px;
+
+  @media ${screen.tablet} {
+    font-size: 20px;
+  }
 `;
 
 const HeroButtonsWrapper = styled.div`
@@ -58,4 +76,12 @@ const HeroButtonsWrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   gap: 8px;
+
+  @media ${screen.tablet} {
+    flex-direction: row;
+  }
+`;
+
+const TryButterButton = styled(Button)`
+  white-space: nowrap;
 `;

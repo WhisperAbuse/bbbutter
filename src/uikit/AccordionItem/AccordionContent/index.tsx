@@ -3,6 +3,7 @@ import { forwardRef, PropsWithChildren } from 'react';
 import * as Accordion from '@radix-ui/react-accordion';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import Typography from '@/uikit/Typography';
 
 interface IProps {
@@ -41,6 +42,12 @@ const ContentText = styled(Typography)`
   font-weight: 300;
   line-height: 1.5;
   padding: 0 15px 30px 15px;
+
+  @media ${screen.tablet} {
+    font-size: 22px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `;
 
 export default AccordionContent;

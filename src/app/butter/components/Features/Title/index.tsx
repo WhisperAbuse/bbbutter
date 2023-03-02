@@ -1,8 +1,9 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Heading from "@/uikit/Heading";
+import { screen } from '@/global/breakpoints';
+import Heading from '@/uikit/Heading';
 
 interface IProps {
   className?: string;
@@ -22,6 +23,14 @@ const FeatureTitle = styled(FeatureTitleBase)``;
 
 const Container = styled(Heading)`
   font-size: 100px;
+
+  @media ${screen.tablet} {
+    font-size: 125px;
+  }
+
+  @media ${screen.laptopL} {
+    font-size: 200px;
+  }
 `;
 
 export default FeatureTitle;

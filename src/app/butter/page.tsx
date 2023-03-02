@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import Footer from '@/shared/Footer';
 import Navigation from '@/shared/Navigation';
 import ScrollingPartners from '@/shared/ScrollingPartners';
@@ -69,6 +70,8 @@ const MobileVideo = styled.video`
   border-radius: 24px;
 `;
 
+const HeroWrapper = styled(PageContentWrap)``;
+
 const VideoWrapper = styled(PageContentWrap)`
   width: 100%;
   margin-top: -40px;
@@ -77,12 +80,24 @@ const VideoWrapper = styled(PageContentWrap)`
 
 const ScrollingPartnersWrapper = styled.div`
   padding: 80px 0;
+
+  @media ${screen.tablet} {
+    padding: 170px 0;
+  }
 `;
 
 const LargeParagraphWrapper = styled(PageContentWrap)``;
 
 const FeatureWrapper = styled.div`
   margin-top: 200px;
+
+  @media ${screen.laptop} {
+    padding: 0 20px;
+  }
+
+  @media ${screen.laptopL} {
+    padding: 0 60px;
+  }
 `;
 
 const ReviewsWrapper = styled.div`
@@ -91,6 +106,10 @@ const ReviewsWrapper = styled.div`
 
 const SpinWordsWrapper = styled(PageContentWrap)`
   margin-top: 70px;
+
+  @media ${screen.laptop} {
+    padding: 0 100px;
+  }
 `;
 
 const CommunityParagraphWrapper = styled(PageContentWrap)`

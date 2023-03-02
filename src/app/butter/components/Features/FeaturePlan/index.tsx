@@ -1,13 +1,16 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import Image from "next/image";
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import FeaturePaper from "@/shared/FeaturePaper";
-import PlanDottedImg from "public/media/features/plan_dotted_pattern.png";
+import FeaturePaper from '@/shared/FeaturePaper';
+import PlanCheckoutImg from 'public/media/features/plan_checkout.webp';
+import PlanDottedImg from 'public/media/features/plan_dotted_pattern.png';
+import PlanReflectionImg from 'public/media/features/plan_reflection.webp';
+import PlanWelcomeImg from 'public/media/features/plan_welcome.webp';
 
-import FeatureContent from "../Content";
-import Title from "../Title";
+import FeatureContent from '../Content';
+import Title from '../Title';
 
 interface IProps {
   className?: string;
@@ -18,7 +21,18 @@ function FeaturePlan({ className }: IProps): ReactElement {
     <div>
       <Title title="Plan" />
       <StyledFeaturePlan>
-        <StyledImage src={PlanDottedImg} alt="" />
+        <ImagesWrapper>
+          <StyledImage src={PlanDottedImg} alt="" />
+          <ReflectionImageWrapper>
+            <Image src={PlanReflectionImg} alt="" />
+          </ReflectionImageWrapper>
+          <CheckoutImageWrapper>
+            <Image src={PlanCheckoutImg} alt="" />
+          </CheckoutImageWrapper>
+          <WelcomeImageWrapper>
+            <Image src={PlanWelcomeImg} alt="" />
+          </WelcomeImageWrapper>
+        </ImagesWrapper>
         <FeatureContentWrapper>
           <FeatureContent
             heading="Prepare sessions that practically run themselves"
@@ -31,6 +45,34 @@ function FeaturePlan({ className }: IProps): ReactElement {
   );
 }
 
+const ImagesWrapper = styled.div`
+  margin: 0 auto;
+  width: fit-content;
+  position: relative;
+`;
+
+const AbsoluteWrapper = styled.div`
+  position: absolute;
+`;
+
+const CheckoutImageWrapper = styled(AbsoluteWrapper)`
+  top: 45%;
+  left: 30%;
+  max-width: 200px;
+`;
+
+const ReflectionImageWrapper = styled(AbsoluteWrapper)`
+  top: 30%;
+  left: 0;
+  max-width: 200px;
+`;
+
+const WelcomeImageWrapper = styled(AbsoluteWrapper)`
+  top: 13%;
+  left: 33%;
+  max-width: 200px;
+`;
+
 const StyledImage = styled(Image)`
   width: 100%;
   height: fit-content;
@@ -38,7 +80,7 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledFeaturePlan = styled(FeaturePaper)`
-  background-color: ${(p) => p.theme["light-purple"]};
+  background-color: ${(p) => p.theme['light-purple']};
 `;
 
 const FeatureContentWrapper = styled.div`

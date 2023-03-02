@@ -1,13 +1,13 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import Image from "next/image";
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import FeaturePaper from "@/shared/FeaturePaper";
-import CollaborateDottedImg from "public/media/features/collaborate_dotted_pattern.png";
+import FeaturePaper from '@/shared/FeaturePaper';
+import CollaborateDottedImg from 'public/media/features/collaborate_dotted_pattern.png';
 
-import FeatureContent from "../Content";
-import Title from "../Title";
+import FeatureContent from '../Content';
+import Title from '../Title';
 
 interface IProps {
   className?: string;
@@ -16,9 +16,11 @@ interface IProps {
 function FeatureCollaborate({ className }: IProps): ReactElement {
   return (
     <div>
-      <Title title="Colla&#13;borate" />
+      <Title title="Collaborate" />
       <StyledFeatureCollaborate>
-        <StyledImage src={CollaborateDottedImg} alt="" />
+        <ImagesWrapper>
+          <StyledImage src={CollaborateDottedImg} alt="" />
+        </ImagesWrapper>
         <FeatureContentWrapper>
           <FeatureContent
             heading="One workspace for all your team’s sessions"
@@ -31,6 +33,16 @@ function FeatureCollaborate({ className }: IProps): ReactElement {
   );
 }
 
+const ImagesWrapper = styled.div`
+  margin: 0 auto;
+  width: fit-content;
+  position: relative;
+`;
+
+const AbsoluteWrapper = styled.div`
+  position: absolute;
+`;
+
 const StyledImage = styled(Image)`
   width: 100%;
   height: fit-content;
@@ -38,7 +50,7 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledFeatureCollaborate = styled(FeaturePaper)`
-  background-color: ${(p) => p.theme["light-pink"]};
+  background-color: ${(p) => p.theme['light-pink']};
 `;
 
 const FeatureContentWrapper = styled.div`

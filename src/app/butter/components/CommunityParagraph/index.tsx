@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import Button from '@/uikit/Button';
 import Typography from '@/uikit/Typography';
 
@@ -29,6 +30,14 @@ const CommunityParagraph = styled(CommunityParagraphBase)`
   font-size: 32px;
   line-height: 1;
   font-weight: 300;
+
+  @media ${screen.tablet} {
+    font-size: 48px;
+  }
+
+  @media ${screen.laptop} {
+    font-size: 64px;
+  }
 `;
 
 const Container = styled.div``;
