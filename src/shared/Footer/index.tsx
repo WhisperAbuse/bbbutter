@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
 import Heading from '@/uikit/Heading';
+import PageContentWrap from '@/uikit/PageContentWrap';
 import Typography from '@/uikit/Typography';
 
 import BottomFooter from './BottomFooter';
@@ -36,7 +37,7 @@ const Footer = styled(FooterBase)`
 
 const Container = styled.div``;
 
-const FooterGetStarted = styled.div`
+const FooterGetStarted = styled(PageContentWrap)`
   padding: 50px;
   display: flex;
   flex-direction: column;

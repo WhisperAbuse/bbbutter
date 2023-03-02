@@ -91,15 +91,7 @@ function ReviewsBase({ className }: IProps): ReactElement {
   );
 }
 
-const Reviews = styled(ReviewsBase)`
-  @media ${screen.laptop} {
-    padding: 0 20px;
-  }
-
-  @media ${screen.laptopL} {
-    padding: 0 60px;
-  }
-`;
+const Reviews = styled(ReviewsBase)``;
 
 const PaginationWrapper = styled.div`
   margin: 0 auto;

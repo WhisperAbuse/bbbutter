@@ -3,11 +3,13 @@ import { ReactElement } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import ButterWordImg from 'public/media/spinning-words/Butter.svg';
 import ProfileGreenImg from 'public/media/spinning-words/community_profile_green.webp';
 import ProfilePurpleImg from 'public/media/spinning-words/community_profile_purple.webp';
 import ProfileRedImg from 'public/media/spinning-words/community_profile_red.webp';
 import CommunityWordImg from 'public/media/spinning-words/CommunityWord.svg';
+import DotPlayImg from 'public/media/spinning-words/Dot Play.webp';
 import PlaySVG from 'public/media/spinning-words/Play logo.svg';
 
 interface IProps {
@@ -18,11 +20,18 @@ function SpinWordsBase({ className }: IProps): ReactElement {
   return (
     <Container className={className}>
       <Image src={CommunityWordImg} alt="" className="community-word-rotate" />
-      <ButterWord className="butter-word-rotate">
-        <ButterImage src={ButterWordImg} alt="" />
+      <ButterWord>
+        <ButterImage
+          src={ButterWordImg}
+          alt=""
+          className="butter-word-rotate"
+        />
       </ButterWord>
       <PlayButtonWrapper>
-        <PlayImage src={PlaySVG} alt="" />
+        <PlayImagesWrapper>
+          <DotPlayImage src={DotPlayImg} alt="" />
+          <PlayImage src={PlaySVG} alt="" />
+        </PlayImagesWrapper>
       </PlayButtonWrapper>
       <div>
         <ProfileRed>
@@ -60,6 +69,16 @@ const ButterImage = styled(Image)`
   width: 50%;
 `;
 
+const DotPlayImage = styled(Image)`
+  position: absolute;
+  width: 130%;
+  opacity: 0;
+`;
+
+const PlayImage = styled(Image)`
+  position: absolute;
+`;
+
 const PlayButtonWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -69,10 +88,28 @@ const PlayButtonWrapper = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
+  transform: translateX(1%);
 `;
 
-const PlayImage = styled(Image)`
-  width: 10%;
+const PlayImagesWrapper = styled.div`
+  position: relative;
+  width: 12%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    ${DotPlayImage} {
+      opacity: 1;
+    }
+  }
+
+  @media ${screen.laptop} {
+    width: 7%;
+    height: 7%;
+  }
 `;
 
 const ProfileRed = styled.div`

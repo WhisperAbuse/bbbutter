@@ -88,8 +88,9 @@ const ScrollingPartnersWrapper = styled.div`
 
 const LargeParagraphWrapper = styled(PageContentWrap)``;
 
-const FeatureWrapper = styled.div`
+const FeatureWrapper = styled(PageContentWrap)`
   margin-top: 200px;
+  padding: 0;
 
   @media ${screen.laptop} {
     padding: 0 20px;
@@ -100,8 +101,17 @@ const FeatureWrapper = styled.div`
   }
 `;
 
-const ReviewsWrapper = styled.div`
+const ReviewsWrapper = styled(PageContentWrap)`
   margin-top: 150px;
+  padding: 0;
+
+  @media ${screen.laptop} {
+    padding: 0 20px;
+  }
+
+  @media ${screen.laptopL} {
+    padding: 0 60px;
+  }
 `;
 
 const SpinWordsWrapper = styled(PageContentWrap)`
