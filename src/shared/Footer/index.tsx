@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import Heading from '@/uikit/Heading';
 import Typography from '@/uikit/Typography';
 
@@ -40,12 +41,20 @@ const FooterGetStarted = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
+
+  @media ${screen.laptop} {
+    padding: 100px 70px;
+  }
 `;
 
 const GetStartedHeading = styled(Typography)`
   font-size: 32px;
   color: white;
   font-weight: 300;
+
+  @media ${screen.laptop} {
+    font-size: 64px;
+  }
 `;
 
 const BottomFooterWrapper = styled.div`
