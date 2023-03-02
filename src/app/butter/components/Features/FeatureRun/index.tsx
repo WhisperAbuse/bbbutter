@@ -13,6 +13,7 @@ import RunNode from 'public/media/features/run_bumb_node.png';
 import RunTrueDottedImg from 'public/media/features/run_true_dotted_pattern.png';
 
 import FeatureContent from '../Content';
+import StyledFeatureSection from '../StyledFeatureSection';
 import Title from '../Title';
 
 interface IProps {
@@ -75,6 +76,7 @@ const ImagesWrapper = styled.div`
   margin: 0 auto;
   width: fit-content;
   position: relative;
+  flex-shrink: 0;
 `;
 
 const AbsoluteWrapper = styled.div`
@@ -117,8 +119,11 @@ const FeatureContentWrapper = styled.div`
   margin-top: 40px;
 `;
 
-const SectionTop = styled.div``;
-const SectionBottom = styled.div`
+const SectionTop = styled(StyledFeatureSection)`
+  flex-direction: row-reverse;
+`;
+
+const SectionBottom = styled(StyledFeatureSection)`
   margin-top: 120px;
 `;
 

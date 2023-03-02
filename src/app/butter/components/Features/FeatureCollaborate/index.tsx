@@ -7,6 +7,7 @@ import FeaturePaper from '@/shared/FeaturePaper';
 import CollaborateDottedImg from 'public/media/features/collaborate_dotted_pattern.png';
 
 import FeatureContent from '../Content';
+import StyledFeatureSection from '../StyledFeatureSection';
 import Title from '../Title';
 
 interface IProps {
@@ -18,16 +19,18 @@ function FeatureCollaborate({ className }: IProps): ReactElement {
     <div>
       <Title title="Collaborate" />
       <StyledFeatureCollaborate>
-        <ImagesWrapper>
-          <StyledImage src={CollaborateDottedImg} alt="" />
-        </ImagesWrapper>
-        <FeatureContentWrapper>
-          <FeatureContent
-            heading="One workspace for all your team’s sessions"
-            paragraph="Your Butter workspace gives your team one place to create rooms, share templates, and access recaps. Save on session setup time, create team-wide consistency, and keep tabs on your team’s sessions."
-            buttonText="Create workspace"
-          />
-        </FeatureContentWrapper>
+        <StyledFeatureSection>
+          <ImagesWrapper>
+            <StyledImage src={CollaborateDottedImg} alt="" />
+          </ImagesWrapper>
+          <FeatureContentWrapper>
+            <FeatureContent
+              heading="One workspace for all your team’s sessions"
+              paragraph="Your Butter workspace gives your team one place to create rooms, share templates, and access recaps. Save on session setup time, create team-wide consistency, and keep tabs on your team’s sessions."
+              buttonText="Create workspace"
+            />
+          </FeatureContentWrapper>
+        </StyledFeatureSection>
       </StyledFeatureCollaborate>
     </div>
   );
@@ -37,6 +40,7 @@ const ImagesWrapper = styled.div`
   margin: 0 auto;
   width: fit-content;
   position: relative;
+  flex-shrink: 0;
 `;
 
 const AbsoluteWrapper = styled.div`

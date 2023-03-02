@@ -1,8 +1,9 @@
-import { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren, ReactElement } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Heading from "@/uikit/Heading";
+import { screen } from '@/global/breakpoints';
+import Heading from '@/uikit/Heading';
 
 interface IProps {
   className?: string;
@@ -23,6 +24,10 @@ const FeatureHeading = styled(FeatureHeadingBase)``;
 
 const FeatureHeadingContainer = styled(Heading)`
   font-size: 32px;
+
+  @media ${screen.laptop} {
+    font-size: 44px;
+  }
 `;
 
 export default FeatureHeading;

@@ -1,11 +1,12 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Button from "@/uikit/Button";
+import { screen } from '@/global/breakpoints';
+import Button from '@/uikit/Button';
 
-import FeatureHeading from "../Heading";
-import FeatureParagraph from "../Paragraph";
+import FeatureHeading from '../Heading';
+import FeatureParagraph from '../Paragraph';
 
 interface IProps {
   className?: string;
@@ -25,7 +26,7 @@ function FeatureContentBase({
       <FeatureHeading>{heading} </FeatureHeading>
       <FeatureParagraph>{paragraph}</FeatureParagraph>
       <div>
-        <Button variant="primary-bg-empty">{buttonText}</Button>
+        <StyledButton variant="primary-bg-empty">{buttonText}</StyledButton>
       </div>
     </Container>
   );
@@ -38,4 +39,13 @@ const Container = styled.div`
   flex-direction: column;
   gap: 30px;
 `;
+
+const StyledButton = styled(Button)`
+  font-size: 16px;
+
+  @media ${screen.laptop} {
+    font-size: 18px;
+  }
+`;
+
 export default FeatureContent;

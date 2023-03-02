@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import FeaturePaper from '@/shared/FeaturePaper';
 import PlanCheckoutImg from 'public/media/features/plan_checkout.webp';
 import PlanDottedImg from 'public/media/features/plan_dotted_pattern.png';
@@ -10,6 +11,7 @@ import PlanReflectionImg from 'public/media/features/plan_reflection.webp';
 import PlanWelcomeImg from 'public/media/features/plan_welcome.webp';
 
 import FeatureContent from '../Content';
+import StyledFeatureSection from '../StyledFeatureSection';
 import Title from '../Title';
 
 interface IProps {
@@ -21,25 +23,27 @@ function FeaturePlan({ className }: IProps): ReactElement {
     <div>
       <Title title="Plan" />
       <StyledFeaturePlan>
-        <ImagesWrapper>
-          <StyledImage src={PlanDottedImg} alt="" />
-          <ReflectionImageWrapper>
-            <Image src={PlanReflectionImg} alt="" />
-          </ReflectionImageWrapper>
-          <CheckoutImageWrapper>
-            <Image src={PlanCheckoutImg} alt="" />
-          </CheckoutImageWrapper>
-          <WelcomeImageWrapper>
-            <Image src={PlanWelcomeImg} alt="" />
-          </WelcomeImageWrapper>
-        </ImagesWrapper>
-        <FeatureContentWrapper>
-          <FeatureContent
-            heading="Prepare sessions that practically run themselves"
-            paragraph="Structured sessions lead to better outcomes. Set up the perfect flow with a time-boxed agenda, pre-loaded tools, and a reusable team library."
-            buttonText="Learn more"
-          />
-        </FeatureContentWrapper>
+        <StyledFeatureSection>
+          <ImagesWrapper>
+            <StyledImage src={PlanDottedImg} alt="" />
+            <ReflectionImageWrapper>
+              <Image src={PlanReflectionImg} alt="" />
+            </ReflectionImageWrapper>
+            <CheckoutImageWrapper>
+              <Image src={PlanCheckoutImg} alt="" />
+            </CheckoutImageWrapper>
+            <WelcomeImageWrapper>
+              <Image src={PlanWelcomeImg} alt="" />
+            </WelcomeImageWrapper>
+          </ImagesWrapper>
+          <FeatureContentWrapper>
+            <FeatureContent
+              heading="Prepare sessions that practically run themselves"
+              paragraph="Structured sessions lead to better outcomes. Set up the perfect flow with a time-boxed agenda, pre-loaded tools, and a reusable team library."
+              buttonText="Learn more"
+            />
+          </FeatureContentWrapper>
+        </StyledFeatureSection>
       </StyledFeaturePlan>
     </div>
   );
@@ -49,6 +53,7 @@ const ImagesWrapper = styled.div`
   margin: 0 auto;
   width: fit-content;
   position: relative;
+  flex-shrink: 0;
 `;
 
 const AbsoluteWrapper = styled.div`
