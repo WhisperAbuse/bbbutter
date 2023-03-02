@@ -82,6 +82,10 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: fit-content;
   max-width: 400px;
+
+  @media ${screen.laptop} {
+    max-width: 600px;
+  }
 `;
 
 const StyledFeaturePlan = styled(FeaturePaper)`
@@ -90,6 +94,10 @@ const StyledFeaturePlan = styled(FeaturePaper)`
 
 const FeatureContentWrapper = styled.div`
   margin-top: 40px;
+
+  @media ${screen.laptop} {
+    margin-top: 0;
+  }
 `;
 
 export default FeaturePlan;

@@ -109,6 +109,7 @@ const SpinWordsWrapper = styled(PageContentWrap)`
 
   @media ${screen.laptop} {
     padding: 0 150px;
+    margin-top: 150px;
   }
 
   @media ${screen.laptopL} {
@@ -118,10 +119,18 @@ const SpinWordsWrapper = styled(PageContentWrap)`
 
 const CommunityParagraphWrapper = styled(PageContentWrap)`
   margin-top: 50px;
+
+  @media ${screen.laptop} {
+    margin-top: 150px;
+  }
 `;
 
 const WhatTheFAQWrapper = styled(PageContentWrap)`
   margin-top: 180px;
+
+  @media ${screen.laptop} {
+    margin-top: 250px;
+  }
 `;
 
 const FooterWrapper = styled.div`

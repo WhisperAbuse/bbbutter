@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import FeaturePaper from '@/shared/FeaturePaper';
 import CollaborateDottedImg from 'public/media/features/collaborate_dotted_pattern.png';
 
@@ -51,6 +52,10 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: fit-content;
   max-width: 400px;
+
+  @media ${screen.laptop} {
+    max-width: 600px;
+  }
 `;
 
 const StyledFeatureCollaborate = styled(FeaturePaper)`
@@ -59,6 +64,10 @@ const StyledFeatureCollaborate = styled(FeaturePaper)`
 
 const FeatureContentWrapper = styled.div`
   margin-top: 40px;
+
+  @media ${screen.laptop} {
+    margin-top: 0;
+  }
 `;
 
 export default FeatureCollaborate;

@@ -26,7 +26,7 @@ export default function Hero() {
           <TryButterButton fullWidth variant="primary-dark">
             Try Butter for free
           </TryButterButton>
-          <Button fullWidth>Book a demo</Button>
+          <DemoButton fullWidth>Book a demo</DemoButton>
         </HeroButtonsWrapper>
       </PageContentWrap>
     </Container>
@@ -79,9 +79,20 @@ const HeroButtonsWrapper = styled.div`
 
   @media ${screen.tablet} {
     flex-direction: row;
+    gap: 12px;
   }
 `;
 
 const TryButterButton = styled(Button)`
   white-space: nowrap;
+
+  @media ${screen.laptop} {
+    font-size: 18px;
+  }
+`;
+
+const DemoButton = styled(Button)`
+  @media ${screen.laptop} {
+    font-size: 18px;
+  }
 `;

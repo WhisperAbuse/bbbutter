@@ -1,11 +1,13 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import FeatureCollaborate from "./FeatureCollaborate";
-import FeaturePlan from "./FeaturePlan";
-import FeatureRecap from "./FeatureRecap";
-import FeatureRun from "./FeatureRun";
+import { screen } from '@/global/breakpoints';
+
+import FeatureCollaborate from './FeatureCollaborate';
+import FeaturePlan from './FeaturePlan';
+import FeatureRecap from './FeatureRecap';
+import FeatureRun from './FeatureRun';
 
 interface IProps {
   className?: string;
@@ -28,5 +30,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 80px;
+
+  @media ${screen.laptop} {
+    gap: 120px;
+  }
 `;
 export default Features;

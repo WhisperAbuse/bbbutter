@@ -38,6 +38,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  @media ${screen.laptop} {
+    max-width: 700px;
+  }
 `;
 
 const StyledButton = styled(Button)`

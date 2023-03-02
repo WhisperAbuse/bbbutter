@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { screen } from '@/global/breakpoints';
 import FeaturePaper from '@/shared/FeaturePaper';
 import lottieHands from 'public/media/animations/lottie-anim-hands.json';
 import RunBean from 'public/media/features/mrbean.gif';
@@ -70,6 +71,10 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: fit-content;
   max-width: 400px;
+
+  @media ${screen.laptop} {
+    max-width: 600px;
+  }
 `;
 
 const ImagesWrapper = styled.div`
@@ -117,6 +122,10 @@ const StyledFeatureRun = styled(FeaturePaper)`
 
 const FeatureContentWrapper = styled.div`
   margin-top: 40px;
+
+  @media ${screen.laptop} {
+    margin-top: 0;
+  }
 `;
 
 const SectionTop = styled(StyledFeatureSection)`
