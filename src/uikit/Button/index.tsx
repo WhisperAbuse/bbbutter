@@ -1,22 +1,22 @@
-import { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren, ReactElement } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import ButtonBase, { BaseButtonProps } from "../BaseButton";
+import ButtonBase, { BaseButtonProps } from '../BaseButton';
 
-type ButtonVariant = "primary" | "primary-dark" | "primary-bg-empty";
+type ButtonVariant = 'primary' | 'primary-dark' | 'primary-bg-empty';
 
 type IProps = BaseButtonProps & {
   variant?: ButtonVariant;
 };
 
 export default function Button(props: PropsWithChildren<IProps>): ReactElement {
-  const { variant = "primary", children } = props;
+  const { variant = 'primary', children } = props;
   let Component = PrimaryButton;
 
-  if (variant === "primary-dark") {
+  if (variant === 'primary-dark') {
     Component = PrimaryButtonDark;
-  } else if (variant === "primary-bg-empty") {
+  } else if (variant === 'primary-bg-empty') {
     Component = PrimaryBgEmpty;
   }
 
@@ -25,6 +25,11 @@ export default function Button(props: PropsWithChildren<IProps>): ReactElement {
 
 const PrimaryButtonBase = styled(ButtonBase)`
   border: 2px solid ${(p) => p.theme.dark};
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 5px 5px 0 0 #000;
+  }
 `;
 
 const PrimaryButton = styled(PrimaryButtonBase)`

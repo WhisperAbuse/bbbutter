@@ -3,12 +3,12 @@ import {
   PropsWithChildren,
   ReactElement,
   ReactNode,
-} from "react";
+} from 'react';
 
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-type ButtonSize = "sm" | "md" | "lg" | "custom";
-type AsComponent = "button" | "a" | "div";
+type ButtonSize = 'sm' | 'md' | 'lg' | 'custom';
+type AsComponent = 'button' | 'a' | 'div';
 
 export interface BaseButtonProps {
   size?: ButtonSize;
@@ -20,7 +20,7 @@ export interface BaseButtonProps {
 
 function Button({
   children,
-  asComponent = "button",
+  asComponent = 'button',
   className,
   ...rest
 }: PropsWithChildren<BaseButtonProps>): ReactElement {
@@ -34,9 +34,9 @@ function Button({
 }
 
 const ButtonBase = styled(Button).attrs((p) => ({
-  size: p.size || "md",
+  size: p.size || 'md',
 }))`
-  font-family: "Gt eesti display", sans-serif;
+  font-family: 'Gt eesti display', sans-serif;
   padding: 0;
   background-color: transparent;
   border: 0;
@@ -44,7 +44,7 @@ const ButtonBase = styled(Button).attrs((p) => ({
 
   ${(p) => {
     switch (p.size) {
-      case "md":
+      case 'md':
         return css`
           padding: 18px 26px;
           border-radius: 16px;
@@ -54,7 +54,7 @@ const ButtonBase = styled(Button).attrs((p) => ({
         `;
     }
   }}
-  ${(p) => p.fullWidth && "width: 100%"}
+  ${(p) => p.fullWidth && 'width: 100%'}
 `;
 
 export default ButtonBase;
