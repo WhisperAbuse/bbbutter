@@ -7,24 +7,11 @@ import LogoImg from 'public/media/common/butterlogo.svg';
 
 import MobileBurger from './MobileBurger';
 
-export default function MobileNavigation() {
-  const [scrollPosition, setScrollPosition] = useState(0);
+interface IProps {
+  opacity: number;
+}
 
-  const handleScroll = () => {
-    const position = window.scrollY;
-    setScrollPosition(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const opacity = Math.min(Math.min(200, scrollPosition) / 200, 1);
-
+export default function MobileNavigation({ opacity }: IProps) {
   return (
     <MobileNavWrapper>
       <MobileNav style={{ '--opacity': opacity } as CSSProperties}>
@@ -41,9 +28,6 @@ export default function MobileNavigation() {
 
 const MobileNavWrapper = styled.div`
   padding: 15px 20px 0px;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
 `;
 

@@ -60,7 +60,7 @@ export default function Butter() {
 
 const Main = styled.main``;
 
-const NavWrapper = styled(PageContentWrap)`
+const NavWrapper = styled.div`
   z-index: 10;
   position: relative;
 `;

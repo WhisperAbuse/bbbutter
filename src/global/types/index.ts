@@ -16,3 +16,8 @@ export interface FaqData {
   question: ReactNode;
   answer: ReactElement;
 }
+
+export interface NavLinkData {
+  href: string;
+  text: string;
+}
