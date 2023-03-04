@@ -18,7 +18,7 @@ function OnlyMobileBase({
 const OnlyMobile = styled(OnlyMobileBase)``;
 
 const Container = styled.div`
-  @media ${screen.laptop} {
+  @media ${screen.tablet} {
     display: none;
   }
 `;

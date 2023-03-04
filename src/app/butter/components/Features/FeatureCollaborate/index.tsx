@@ -4,6 +4,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
+import OnlyMobile from '@/shared/Breakpoints/OnlyMobile';
+import OnlyTabletDesktop from '@/shared/Breakpoints/OnlyTabletDesktop';
 import FeaturePaper from '@/shared/FeaturePaper';
 import CollaborateDottedImg from 'public/media/features/collaborate_dotted_pattern.png';
 
@@ -18,7 +20,22 @@ interface IProps {
 function FeatureCollaborate({ className }: IProps): ReactElement {
   return (
     <div>
-      <Title title="Collaborate" />
+      <OnlyTabletDesktop>
+        <Title title="Collaborate" rotateAngle={10} align="right" />
+      </OnlyTabletDesktop>
+      <OnlyMobile>
+        <Title
+          title={
+            <>
+              Colla
+              <br />
+              borate
+            </>
+          }
+          rotateAngle={10}
+          align="right"
+        />
+      </OnlyMobile>
       <StyledFeatureCollaborate>
         <StyledFeatureSection>
           <ImagesWrapper>

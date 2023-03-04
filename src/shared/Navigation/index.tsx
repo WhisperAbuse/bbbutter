@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
-import OnlyDesktop from '../OnlyDesktop';
-import OnlyMobile from '../OnlyMobile';
+import OnlyDesktop from '../Breakpoints/OnlyDesktop';
+import OnlyMobileTablet from '../Breakpoints/OnlyMobileTablet';
 
 const MAX_SCROLL_VALUE = 110;
 
@@ -32,9 +32,9 @@ export default function Navigation() {
 
   return (
     <Container>
-      <OnlyMobile>
+      <OnlyMobileTablet>
         <MobileNavigation opacity={opacity} />
-      </OnlyMobile>
+      </OnlyMobileTablet>
       <OnlyDesktop>
         <DesktopNavigation opacity={opacity} />
       </OnlyDesktop>

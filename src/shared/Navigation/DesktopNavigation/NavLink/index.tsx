@@ -1,3 +1,4 @@
+'use client';
 import { ReactElement, ReactNode } from 'react';
 
 import Image from 'next/image';
@@ -19,9 +20,7 @@ function NavLinkBase({ className, linkData, HoverMenu }: IProps): ReactElement {
   return (
     <Container className={className}>
       {HoverMenu ? (
-        <ButtonBase size="custom">
-          <NavLinkText>{linkData.text}</NavLinkText>
-        </ButtonBase>
+        <NavLinkText>{linkData.text}</NavLinkText>
       ) : (
         <Link href={linkData.href}>
           <NavLinkText>{linkData.text}</NavLinkText>

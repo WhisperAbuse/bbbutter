@@ -24,7 +24,7 @@ interface IProps {
 function FeatureRun({ className }: IProps): ReactElement {
   return (
     <div>
-      <Title title="Run" />
+      <Title title="Run" rotateAngle={10} align="right" />
       <StyledFeatureRun>
         <SectionTop>
           <ImagesWrapper>

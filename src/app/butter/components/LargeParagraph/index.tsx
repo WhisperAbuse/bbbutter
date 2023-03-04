@@ -1,6 +1,7 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useRef, useState } from 'react';
 
-import styled from 'styled-components';
+import { useInView } from 'framer-motion';
+import styled, { css } from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
 import Typography from '@/uikit/Typography';
@@ -10,12 +11,25 @@ interface IProps {
 }
 
 function LargeParagraphBase({ className }: IProps): ReactElement {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  const [highlight, setHighlight] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !highlight) {
+      setHighlight(true);
+    }
+  }, [isInView]);
+
   return (
     <Typography className={className}>
       <strong>All your team’s facilitation tools in one place.</strong> Stop
       hosting snoozefests. Start collaborating effectively. Butter brings{' '}
-      <HighlightedText>structure, energy, and joy</HighlightedText> to your
-      meetings, workshops, and training sessions.
+      <HighlightedText ref={ref} highlight={highlight}>
+        structure, energy, and joy
+      </HighlightedText>{' '}
+      to your meetings, workshops, and training sessions.
     </Typography>
   );
 }
@@ -34,8 +48,21 @@ const LargeParagraph = styled(LargeParagraphBase)`
   }
 `;
 
-const HighlightedText = styled.span`
-  background-color: ${(p) => p.theme.main};
+const HighlightedText = styled.span<{ highlight: boolean }>`
+  background-size: 0 100%;
+  ${(p) =>
+    p.highlight &&
+    css`
+      text-decoration: none;
+      background-image: linear-gradient(
+        to right,
+        ${(p) => p.theme.main} 0,
+        ${(p) => p.theme.main} 100%
+      );
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    `}
+  transition: background 1s;
 `;
 
 export default LargeParagraph;
