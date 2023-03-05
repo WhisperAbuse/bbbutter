@@ -10,6 +10,7 @@ import PageContentWrap from '@/uikit/PageContentWrap';
 
 import CommunityParagraph from './components/CommunityParagraph';
 import Features from './components/Features';
+import ShowcaseVideo from './components/Features/ShowcaseVideo';
 import Hero from './components/Hero';
 import LargeParagraph from './components/LargeParagraph';
 import Reviews from './components/Reviews';
@@ -24,11 +25,7 @@ export default function Butter() {
       </NavWrapper>
       <Hero />
       <VideoWrapper>
-        <MobileVideo controls>
-          Sorry, your browser doesn&apos;t support embedded videos.
-          <source type="video/webm" src="/public/Product+Explainer.webm" />
-          <source type="video/mp4" src="/public/butter-explainer-01-2023.mp4" />
-        </MobileVideo>
+        <ShowcaseVideo />
       </VideoWrapper>
       <ScrollingPartnersWrapper>
         <ScrollingPartners />
@@ -63,11 +60,6 @@ const Main = styled.main``;
 const NavWrapper = styled.div`
   z-index: 10;
   position: relative;
-`;
-
-const MobileVideo = styled.video`
-  width: 100%;
-  border-radius: 24px;
 `;
 
 const HeroWrapper = styled(PageContentWrap)``;

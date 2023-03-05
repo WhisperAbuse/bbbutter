@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
+import useAnimatedImages from '@/hooks/useAnimatedImages';
 import FeaturePaper from '@/shared/FeaturePaper';
 import lottieHands from 'public/media/animations/lottie-anim-hands.json';
 import RunBean from 'public/media/features/mrbean.gif';
@@ -13,6 +14,7 @@ import RunDottedImg from 'public/media/features/run_bumb_dotted_pattern.png';
 import RunNode from 'public/media/features/run_bumb_node.png';
 import RunTrueDottedImg from 'public/media/features/run_true_dotted_pattern.png';
 
+import AnimatedImagesWrapper from '../AnimatedImagesWrapper';
 import FeatureContent from '../Content';
 import StyledFeatureSection from '../StyledFeatureSection';
 import Title from '../Title';
@@ -22,34 +24,43 @@ interface IProps {
 }
 
 function FeatureRun({ className }: IProps): ReactElement {
+  const { containerRef, onMouseMove, rotateX, rotateY, setInitialAnimation } =
+    useAnimatedImages();
+
   return (
     <div>
       <Title title="Run" rotateAngle={10} align="right" />
       <StyledFeatureRun>
-        <SectionTop>
-          <ImagesWrapper>
-            <StyledImage src={RunDottedImg} alt="" />
-            <ChatImageWrapper>
-              <Image src={RunChat} alt="" />
-            </ChatImageWrapper>
-            <BeanImageWrapper>
-              <Image src={RunBean} alt="" />
-            </BeanImageWrapper>
-            <NodeImageWrapper>
-              <Image src={RunNode} alt="" />
-            </NodeImageWrapper>
-            <HandsWrapper>
-              <Lottie animationData={lottieHands} loop={true} />
-            </HandsWrapper>
-          </ImagesWrapper>
-          <FeatureContentWrapper>
-            <FeatureContent
-              heading="Bump up the energy"
-              paragraph="Say goodbye to meeting fatigue. Say hello to participation. Keep everyone engaged with emoji reactions, sound effects, a hand-raise queue, polls, flashcards, music, and GIFs."
-              buttonText="Show me the energy"
-            />
-          </FeatureContentWrapper>
-        </SectionTop>
+        <div
+          ref={containerRef}
+          onMouseMove={onMouseMove}
+          onMouseLeave={setInitialAnimation}
+        >
+          <SectionTop>
+            <AnimatedImagesWrapper rotateX={rotateX} rotateY={rotateY}>
+              <StyledImage src={RunDottedImg} alt="" />
+              <ChatImageWrapper>
+                <Image src={RunChat} alt="" />
+              </ChatImageWrapper>
+              <BeanImageWrapper>
+                <Image src={RunBean} alt="" />
+              </BeanImageWrapper>
+              <NodeImageWrapper>
+                <Image src={RunNode} alt="" />
+              </NodeImageWrapper>
+              <HandsWrapper>
+                <Lottie animationData={lottieHands} loop={true} />
+              </HandsWrapper>
+            </AnimatedImagesWrapper>
+            <FeatureContentWrapper>
+              <FeatureContent
+                heading="Bump up the energy"
+                paragraph="Say goodbye to meeting fatigue. Say hello to participation. Keep everyone engaged with emoji reactions, sound effects, a hand-raise queue, polls, flashcards, music, and GIFs."
+                buttonText="Show me the energy"
+              />
+            </FeatureContentWrapper>
+          </SectionTop>
+        </div>
         <SectionBottom>
           <ImagesWrapper>
             <StyledImage src={RunTrueDottedImg} alt="" />
@@ -91,29 +102,31 @@ const AbsoluteWrapper = styled.div`
 const BeanImageWrapper = styled(AbsoluteWrapper)`
   top: 40%;
   right: -4%;
-  max-width: 90px;
-  transform: rotate(12deg);
+  max-width: 20%;
   overflow: hidden;
   border-radius: 20px;
+  transform: rotate(12deg) translate3d(0, 0, 400px);
 `;
 
 const ChatImageWrapper = styled(AbsoluteWrapper)`
-  top: 0%;
-  left: 0;
-  max-width: 100%;
+  top: 10%;
+  left: 10%;
+  max-width: 80%;
+  transform: translate3d(0, 0, 300px);
 `;
 
 const NodeImageWrapper = styled(AbsoluteWrapper)`
   bottom: 3%;
   left: 33%;
-  max-width: 70px;
+  max-width: 20%;
+  transform: translate3d(0, 0, 400px);
 `;
 
 const HandsWrapper = styled(AbsoluteWrapper)`
   top: -5%;
   right: 5%;
-  max-width: 130px;
-  transform: rotate(-10deg);
+  max-width: 30%;
+  transform: rotate(-10deg) translate3d(0, 0, 400px);
 `;
 
 const StyledFeatureRun = styled(FeaturePaper)`

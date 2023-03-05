@@ -1,15 +1,26 @@
-import { ReactElement } from 'react';
+'use client';
+import { MouseEvent, ReactElement, useEffect, useRef } from 'react';
 
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  circOut,
+  circInOut,
+  cubicBezier,
+} from 'framer-motion';
 import Image from 'next/image';
 import styled from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
+import useAnimatedImages from '@/hooks/useAnimatedImages';
 import FeaturePaper from '@/shared/FeaturePaper';
 import PlanCheckoutImg from 'public/media/features/plan_checkout.webp';
 import PlanDottedImg from 'public/media/features/plan_dotted_pattern.png';
 import PlanReflectionImg from 'public/media/features/plan_reflection.webp';
 import PlanWelcomeImg from 'public/media/features/plan_welcome.webp';
 
+import AnimatedImagesWrapper from '../AnimatedImagesWrapper';
 import FeatureContent from '../Content';
 import StyledFeatureSection from '../StyledFeatureSection';
 import Title from '../Title';
@@ -19,12 +30,19 @@ interface IProps {
 }
 
 function FeaturePlan({ className }: IProps): ReactElement {
+  const { containerRef, onMouseMove, rotateX, rotateY, setInitialAnimation } =
+    useAnimatedImages();
+
   return (
-    <div>
+    <div
+      onMouseMove={onMouseMove}
+      ref={containerRef}
+      onMouseLeave={setInitialAnimation}
+    >
       <Title title="Plan" />
       <StyledFeaturePlan>
         <StyledFeatureSection>
-          <ImagesWrapper>
+          <AnimatedImagesWrapper rotateX={rotateX} rotateY={rotateY}>
             <StyledImage src={PlanDottedImg} alt="" />
             <ReflectionImageWrapper>
               <Image src={PlanReflectionImg} alt="" />
@@ -35,7 +53,8 @@ function FeaturePlan({ className }: IProps): ReactElement {
             <WelcomeImageWrapper>
               <Image src={PlanWelcomeImg} alt="" />
             </WelcomeImageWrapper>
-          </ImagesWrapper>
+          </AnimatedImagesWrapper>
+
           <FeatureContentWrapper>
             <FeatureContent
               heading="Prepare sessions that practically run themselves"
@@ -49,13 +68,6 @@ function FeaturePlan({ className }: IProps): ReactElement {
   );
 }
 
-const ImagesWrapper = styled.div`
-  margin: 0 auto;
-  width: fit-content;
-  position: relative;
-  flex-shrink: 0;
-`;
-
 const AbsoluteWrapper = styled.div`
   position: absolute;
 `;
@@ -63,19 +75,22 @@ const AbsoluteWrapper = styled.div`
 const CheckoutImageWrapper = styled(AbsoluteWrapper)`
   top: 45%;
   left: 30%;
-  max-width: 200px;
+  max-width: 50%;
+  transform: translate3d(0, 0, 350px);
 `;
 
 const ReflectionImageWrapper = styled(AbsoluteWrapper)`
   top: 30%;
   left: 0;
-  max-width: 200px;
+  max-width: 50%;
+  transform: translate3d(0, 0, 300px);
 `;
 
 const WelcomeImageWrapper = styled(AbsoluteWrapper)`
   top: 13%;
   left: 33%;
-  max-width: 200px;
+  max-width: 50%;
+  transform: translate3d(0, 0, 400px);
 `;
 
 const StyledImage = styled(Image)`
