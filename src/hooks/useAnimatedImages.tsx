@@ -1,4 +1,6 @@
-import { MouseEvent, useRef } from 'react';
+'use client';
+
+import { MouseEvent, useEffect, useRef, useState } from 'react';
 
 import { useMotionValue, useTransform } from 'framer-motion';
 
@@ -10,8 +12,8 @@ interface IProps {
 function useAnimatedImages(props: IProps = { defaultX: 200, defaultY: 200 }) {
   const { defaultX, defaultY } = props;
   const x = useMotionValue(defaultX);
-  const y = useMotionValue(200);
-
+  const y = useMotionValue(defaultY);
+  const [bruh, setBruh] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const rotateX = useTransform(

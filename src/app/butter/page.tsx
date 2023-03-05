@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
@@ -18,6 +20,12 @@ import SpinWords from './components/SpinWords';
 import WhatTheFAQ from './components/WhatTheFAQ';
 
 export default function Butter() {
+  const [mount, setMount] = useState(false);
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
   return (
     <Main>
       <NavWrapper>
