@@ -5,12 +5,6 @@ import styles from './page.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const [mount, setMount] = useState(false);
-
-useEffect(() => {
-  setMount(true);
-}, []);
-
 export default function Home() {
   return (
     <main className={styles.main}>
