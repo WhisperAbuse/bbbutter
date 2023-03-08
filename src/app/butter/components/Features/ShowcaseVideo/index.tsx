@@ -15,6 +15,9 @@ function ShowcaseVideoBase({ className }: IProps): ReactElement {
   const y = useMotionValue(200);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const [isPlayButtonVisible, setIsPlayButtonVisible] = useState(true);
 
   const moveX = useTransform(
     x,
@@ -37,6 +40,21 @@ function ShowcaseVideoBase({ className }: IProps): ReactElement {
     y.set((containerRef.current?.clientHeight || 200) / 2);
   };
 
+  const onPlayButtonClick = () => {
+    setIsPlayButtonVisible(false);
+
+    setTimeout(() => {
+      startVideo();
+    }, 100);
+  };
+
+  const startVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.volume = 0.5;
+      videoRef.current.play();
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -44,27 +62,41 @@ function ShowcaseVideoBase({ className }: IProps): ReactElement {
       onMouseLeave={setInitialAnimation}
     >
       <Container className={className}>
-        <MobileVideo controls>
-          Sorry, your browser doesn&apos;t support embedded videos.
-          <source
-            type="video/webm"
-            src="public/media/butter-explainer-videos/Product+Explainer.webm"
-          />
-          <source
-            type="video/mp4"
-            src="public/media/butter-explainer-videos/butter-explainer-01-2023.mp4"
-          />
-        </MobileVideo>
-        <PlayButtonWrapper>
-          <MotionDiv
-            style={{
-              x: moveX,
-              y: moveY,
-            }}
-          >
-            <PlayButton />
-          </MotionDiv>
-        </PlayButtonWrapper>
+        {isPlayButtonVisible && (
+          <MobileVideo autoPlay muted>
+            Sorry, your browser doesn&apos;t support embedded videos.
+            <source
+              type="video/mp4"
+              src="/media/butter-explainer-videos/Product Explainer Short-transcode.mp4"
+            />
+          </MobileVideo>
+        )}
+        {!isPlayButtonVisible && (
+          <MobileVideo controls ref={videoRef}>
+            Sorry, your browser doesn&apos;t support embedded videos.
+            <source
+              type="video/webm"
+              src="/media/butter-explainer-videos/Product+Explainer.webm"
+            />
+            <source
+              type="video/mp4"
+              src="/media/butter-explainer-videos/butter-explainer-01-2023.mp4"
+            />
+          </MobileVideo>
+        )}
+
+        {isPlayButtonVisible && (
+          <PlayButtonWrapper>
+            <MotionDiv
+              style={{
+                x: moveX,
+                y: moveY,
+              }}
+            >
+              <PlayButton onClick={onPlayButtonClick} />
+            </MotionDiv>
+          </PlayButtonWrapper>
+        )}
       </Container>
     </div>
   );

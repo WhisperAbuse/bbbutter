@@ -9,11 +9,12 @@ import PlaySVG from 'public/media/spinning-words/Play logo.svg';
 
 interface IProps {
   className?: string;
+  onClick: () => void;
 }
 
-function PlayButtonBase({ className }: IProps): ReactElement {
+function PlayButtonBase({ className, onClick }: IProps): ReactElement {
   return (
-    <Container className={className}>
+    <Container className={className} onClick={onClick}>
       <PlayImage src={PlaySVG} alt="Play showcase video" />
       <TakeHeading>Take a 2 min. tour</TakeHeading>
     </Container>
