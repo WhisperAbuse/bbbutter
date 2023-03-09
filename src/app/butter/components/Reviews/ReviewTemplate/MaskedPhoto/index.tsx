@@ -31,7 +31,7 @@ function MaskedPhotoBase({
 
       <MaskContainer className={'leaf-rotate'}>
         <BackgroundOverlay backgroundColor={backgroundColor} />
-        <StyledImage src={PersonImg} alt="" className={'img-rotate'} />
+        <StyledImage src={PersonImg} alt="" className={'img-rotate'} priority />
         <WhiteOverlay className={'white-overlay-dissapear'} />
       </MaskContainer>
     </Container>
@@ -61,9 +61,6 @@ const MaskContainer = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  width: 100%;
-  height: fit-content;
-
   transform: scale(130%) translateX(10%) translateY(5%);
 `;
 

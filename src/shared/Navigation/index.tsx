@@ -19,7 +19,7 @@ export default function Navigation() {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
