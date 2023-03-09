@@ -1,9 +1,11 @@
 import { ReactElement } from 'react';
 
+import * as Dialog from '@radix-ui/react-dialog';
 import Image from 'next/image';
 import styled from 'styled-components';
 
 import { screen } from '@/global/breakpoints';
+import FullScreenModal from '@/uikit/FullScreenModal';
 import ButterWordImg from 'public/media/spinning-words/Butter.svg';
 import ProfileGreenImg from 'public/media/spinning-words/community_profile_green.webp';
 import ProfilePurpleImg from 'public/media/spinning-words/community_profile_purple.webp';
@@ -12,39 +14,54 @@ import CommunityWordImg from 'public/media/spinning-words/CommunityWord.svg';
 import DotPlayImg from 'public/media/spinning-words/Dot Play.webp';
 import PlaySVG from 'public/media/spinning-words/Play logo.svg';
 
+import EmbeddedVideo from './EmbeddedVideo';
+
 interface IProps {
   className?: string;
 }
 
 function SpinWordsBase({ className }: IProps): ReactElement {
   return (
-    <Container className={className}>
-      <Image src={CommunityWordImg} alt="" className="community-word-rotate" />
-      <ButterWord>
-        <ButterImage
-          src={ButterWordImg}
+    <Dialog.Root>
+      <Container className={className}>
+        <Image
+          src={CommunityWordImg}
           alt=""
-          className="butter-word-rotate"
+          className="community-word-rotate"
         />
-      </ButterWord>
-      <PlayButtonWrapper>
-        <PlayImagesWrapper>
-          <DotPlayImage src={DotPlayImg} alt="" />
-          <PlayImage src={PlaySVG} alt="" />
-        </PlayImagesWrapper>
-      </PlayButtonWrapper>
-      <div>
-        <ProfileRed>
-          <Image src={ProfileRedImg} alt="" />
-        </ProfileRed>
-        <ProfileGreen>
-          <Image src={ProfileGreenImg} alt="" />
-        </ProfileGreen>
-        <ProfilePurple>
-          <Image src={ProfilePurpleImg} alt="" />
-        </ProfilePurple>
-      </div>
-    </Container>
+        <ButterWord>
+          <ButterImage
+            src={ButterWordImg}
+            alt=""
+            className="butter-word-rotate"
+          />
+        </ButterWord>
+
+        <Dialog.Trigger>
+          <PlayButtonWrapper>
+            <PlayImagesWrapper>
+              <DotPlayImage src={DotPlayImg} alt="" />
+              <PlayImage src={PlaySVG} alt="" />
+            </PlayImagesWrapper>
+          </PlayButtonWrapper>
+        </Dialog.Trigger>
+        <FullScreenModal>
+          <EmbeddedVideo />
+        </FullScreenModal>
+
+        <div>
+          <ProfileRed>
+            <Image src={ProfileRedImg} alt="" />
+          </ProfileRed>
+          <ProfileGreen>
+            <Image src={ProfileGreenImg} alt="" />
+          </ProfileGreen>
+          <ProfilePurple>
+            <Image src={ProfilePurpleImg} alt="" />
+          </ProfilePurple>
+        </div>
+      </Container>
+    </Dialog.Root>
   );
 }
 

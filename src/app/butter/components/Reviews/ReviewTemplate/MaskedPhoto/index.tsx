@@ -31,6 +31,7 @@ function MaskedPhotoBase({
 
       <MaskContainer className={'leaf-rotate'}>
         <BackgroundOverlay backgroundColor={backgroundColor} />
+        {/* TODO: Remove priority and fix image not appearing */}
         <StyledImage src={PersonImg} alt="" className={'img-rotate'} priority />
         <WhiteOverlay className={'white-overlay-dissapear'} />
       </MaskContainer>

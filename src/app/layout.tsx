@@ -16,6 +16,7 @@ const theme = {
   'contrast-blue': '#80F4D5',
   'footer-link': '#ddd',
   'footer-copyright': '#999',
+  'modal-overlay': 'rgba(12, 10, 43, 0.8)',
 };
 
 export default function RootLayout({
