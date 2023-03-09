@@ -90,6 +90,7 @@ const DotPlayImage = styled(Image)`
   position: absolute;
   width: 130%;
   opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 `;
 
 const PlayImage = styled(Image)`
